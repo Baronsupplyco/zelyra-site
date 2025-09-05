@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZELYRA – Moda Fitness Premium</title>
   <style>
-    :root {--gold:#d4af37; --bg:#000; --text:#fff;}
     body {
-      margin:0; background:var(--bg); color:var(--text);
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* fundo preto premium */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       font-family: Arial, sans-serif;
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      text-align:center; min-height:100vh;
     }
-    img.logo {max-height:64px; margin-bottom:24px;}
-    h1 {font-size:2.2rem; color:var(--gold); margin-bottom:12px;}
-    p {font-size:1.1rem; max-width:600px; margin:0 auto 32px; line-height:1.4;}
-    .buttons {display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:32px;}
-    a.btn {
-      display:inline-block; padding:12px 22px; border-radius:28px; text-decoration:none;
-      font-weight:600; background:var(--gold); color:#000; transition:.2s;
+
+    .logo {
+      text-align: center;
     }
-    a.btn:hover {filter:brightness(1.1);}
+
+    .logo img {
+      max-width: 320px; /* tamanho da logo */
+      height: auto;
+    }
+
+    h1 {
+      color: #d4af37; /* dourado premium */
+      font-size: 20px;
+      margin-top: 15px;
+      letter-spacing: 2px;
+    }
+
+    .links {
+      margin-top: 20px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 18px;
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.3s;
+      font-size: 14px;
+    }
+
+    .links a:hover {
+      background: #d4af37;
+      color: #000;
+    }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="ZELYRA" class="logo" />
-  <h1>Moda Fitness Premium</h1>
-  <p>Moda fitness sofisticada e funcional. Peças que unem estilo, performance e exclusividade.</p>
-  <div class="buttons">
-    <a class="btn" href="https://wa.me/5547997695133" target="_blank" rel="noopener">WhatsApp</a>
-    <a class="btn" href="https://www.instagram.com/zelyra_oficial" target="_blank" rel="noopener">Instagram</a>
-    <a class="btn" href="https://www.tiktok.com/@zelyra" target="_blank" rel="noopener">TikTok</a>
+  <div class="logo">
+    <img src="logo.png" alt="ZELYRA Logo">
+    <h1>Moda Fitness Premium</h1>
+    <div class="links">
+      <a href="https://wa.me/5547997695133" target="_blank">WhatsApp</a>
+      <a href="https://www.instagram.com/zelyra" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@zelyra" target="_blank">TikTok</a>
+      <a href="https://link.mercadopago.com.br/zelyra" target="_blank">Comprar</a>
+    </div>
   </div>
-  <a class="btn" href="https://link.mercadopago.com.br/zelyra" target="_blank" rel="noopener">Comprar Agora</a>
 </body>
 </html>
