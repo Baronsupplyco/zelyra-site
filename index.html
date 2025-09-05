@@ -1,69 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZELYRA – Moda Fitness Premium</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZELYRA — Moda Fitness Premium</title>
+
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/png" href="logo.png"/>
+
+  <!-- SEO -->
+  <meta name="description" content="ZELYRA — Moda Fitness Premium. Qualidade, conforto e estilo para treinar e viver."/>
+  <meta property="og:title" content="ZELYRA — Moda Fitness Premium"/>
+  <meta property="og:description" content="Catálogo de moda fitness premium: tops, leggings, conjuntos e mais."/>
+  <meta property="og:image" content="logo.png"/>
+  <meta name="theme-color" content="#000000"/>
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #000; /* fundo preto premium */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
+    :root{
+      --gold:#e4b17c;
+      --gold-2:#d19a63;
+      --bg:#0a0a0a;
+      --card:#141414;
+      --text:#ffffff;
+      --muted:#b7b7b7;
+      --primary:#ff9900;
+      --primary-2:#e68a00;
+      --radius:18px;
     }
-
-    .logo {
-      text-align: center;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Montserrat',sans-serif;
+      background: radial-gradient(80% 60% at 50% 0%, #1c1c1c 0%, #000 60%);
+      color:var(--text);
     }
-
-    .logo img {
-      max-width: 320px; /* tamanho da logo */
-      height: auto;
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:20px;
     }
-
-    h1 {
-      color: #d4af37; /* dourado premium */
-      font-size: 20px;
-      margin-top: 15px;
-      letter-spacing: 2px;
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:14px;
+      padding:30px 0 10px;
+      text-align:center;
     }
+    .logo{max-width:180px; height:auto}
+    h1{margin:0;font-size:1.4rem; letter-spacing:.06em; font-weight:700}
+    .tagline{color:var(--muted); font-size:.95rem}
 
-    .links {
-      margin-top: 20px;
+    .actions{
+      margin:18px 0 28px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
     }
-
-    .links a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 18px;
-      border: 1px solid #d4af37;
-      color: #d4af37;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: all 0.3s;
-      font-size: 14px;
+    .btn{
+      text-decoration:none;
+      padding:12px 18px;
+      border-radius:30px;
+      font-weight:600;
+      transition:.25s;
+      display:inline-block;
     }
+    .btn.gold{background:var(--gold); color:#000}
+    .btn.gold:hover{background:var(--gold-2); transform:translateY(-2px)}
+    .btn.primary{background:var(--primary); color:#fff}
+    .btn.primary:hover{background:var(--primary-2); transform:translateY(-2px)}
+    .btn.ghost{
+      border:1px solid #2b2b2b;
+      color:#fff;
+      background:transparent;
+    }
+    .btn.ghost:hover{border-color:#3b3b3b; transform:translateY(-2px)}
 
-    .links a:hover {
-      background: #d4af37;
-      color: #000;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    @media (max-width:980px){ .grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:620px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid #1e1e1e;
+      display:flex; flex-direction:column;
+    }
+    .card .img-wrap{
+      width:100%; aspect-ratio: 1 / 1; background:#0f0f0f; position:relative; overflow:hidden;
+    }
+    .card img{
+      width:100%; height:100%; object-fit:cover;
+      display:block; transition: transform .6s ease;
+    }
+    .card:hover img{ transform: scale(1.04); }
+    .content{ padding:14px 16px 16px; display:flex; flex-direction:column; gap:10px; }
+    .title{ font-weight:600; }
+    .price{ font-weight:700; color:var(--gold) }
+    .actions-card{ display:flex; gap:10px; margin-top:6px; }
+    .btn.sm{ padding:10px 12px; border-radius:12px; font-size:.9rem; flex:1; text-align:center; }
+
+    footer{
+      text-align:center; color:var(--muted);
+      font-size:.85rem; padding:28px 0 8px;
     }
   </style>
 </head>
 <body>
-  <div class="logo">
-    <img src="logo.png" alt="ZELYRA Logo">
-    <h1>Moda Fitness Premium</h1>
-    <div class="links">
-      <a href="https://wa.me/5547997695133" target="_blank">WhatsApp</a>
-      <a href="https://www.instagram.com/zelyra" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/@zelyra" target="_blank">TikTok</a>
-      <a href="https://link.mercadopago.com.br/zelyra" target="_blank">Comprar</a>
-    </div>
+  <div class="container">
+    <header>
+      <img src="logo.png" alt="ZELYRA" class="logo">
+      <h1>Moda Fitness Premium</h1>
+      <div class="tagline">Qualidade, conforto e estilo para treinar e viver.</div>
+      <div class="actions">
+        <a class="btn gold" href="https://wa.me/5547997695133?text=Ol%C3%A1%20quero%20ajuda%20para%20comprar%20na%20ZELYRA" target="_blank">WhatsApp</a>
+        <a class="btn ghost" href="https://instagram.com/zelyra_oficial" target="_blank">Instagram</a>
+        <a class="btn ghost" href="https://www.tiktok.com/@zelyra_oficial" target="_blank">TikTok</a>
+        <a class="btn primary" href="https://link.mercadopago.com.br/zelyra" target="_blank">Finalizar compra</a>
+      </div>
+    </header>
+
+    <section id="catalogo" class="grid"><!-- JS renderiza aqui --></section>
+
+    <footer>© 2025 ZELYRA. Todos os direitos reservados.</footer>
   </div>
+
+  <script>
+    // ======== EDITAR AQUI: seus produtos =========
+    // image: pode ser "produtos/arquivo.jpg" (suba no repo) ou uma URL https
+    // mp: seu link do Mercado Pago (pode usar o genérico e eu adiciono ?produto=)
+    const produtos = [
+      {
+        id: "leg-basica",
+        nome: "Legging Compressão Preta",
+        preco: 159.90,
+        image: "produtos/legging-preta.jpg",
+        mp: "https://link.mercadopago.com.br/zelyra"
+      },
+      {
+        id: "top-sculpt",
+        nome: "Top Sculpt Suporte Alto",
+        preco: 119.90,
+        image: "produtos/top-sculpt.jpg",
+        mp: "https://link.mercadopago.com.br/zelyra"
+      },
+      {
+        id: "conj-rose",
+        nome: "Conjunto Rose Premium",
+        preco: 279.90,
+        image: "produtos/conjunto-rose.jpg",
+        mp: "https://link.mercadopago.com.br/zelyra"
+      },
+      {
+        id: "short-body",
+        nome: "Short BodyLift",
+        preco: 99.90,
+        image: "produtos/short-bodylift.jpg",
+        mp: "https://link.mercadopago.com.br/zelyra"
+      },
+      {
+        id: "jaq-tech",
+        nome: "Jaqueta Tech DryFit",
+        preco: 199.90,
+        image: "produtos/jaqueta-tech.jpg",
+        mp: "https://link.mercadopago.com.br/zelyra"
+      },
+      {
+        id: "calca-wide",
+        nome: "Calça Wide Relax",
+        preco: 169.90,
+        image: "produtos/calca-wide.jpg",
+        mp: "https://link.mercadopago.com.br/zelyra"
+      }
+    ];
+    // =============================================
+
+    const fmtBRL = v => v.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+
+    function cardHTML(p){
+      const img = p.image || "https://picsum.photos/seed/zelyra/800/800";
+      const preco = fmtBRL(p.preco);
+      const mpUrl = `${p.mp}?produto=${encodeURIComponent(p.nome)}&valor=${encodeURIComponent(preco)}`;
+      const waUrl = `https://wa.me/5547997695133?text=${encodeURIComponent(
+        `Olá, tenho interesse em *${p.nome}* (${preco}). Pode me ajudar?`
+      )}`;
+      return `
+        <article class="card">
+          <div class="img-wrap">
+            <img src="${img}" alt="${p.nome}" loading="lazy" onerror="this.src='https://picsum.photos/seed/${encodeURIComponent(p.id)}/800/800'">
+          </div>
+          <div class="content">
+            <div class="title">${p.nome}</div>
+            <div class="price">${preco}</div>
+            <div class="actions-card">
+              <a class="btn sm primary" href="${mpUrl}" target="_blank" rel="noopener">Comprar</a>
+              <a class="btn sm gold" href="${waUrl}" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    document.getElementById('catalogo').innerHTML = produtos.map(cardHTML).join('');
+  </script>
 </body>
 </html>
