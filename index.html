@@ -1,198 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>ZELYRA — Moda Fitness Premium</title>
-  <meta name="description" content="Catálogo ZELYRA: moda fitness premium com estilo, conforto e performance."/>
-  <link rel="icon" type="image/png" href="logo.png"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zelyra | Moda Fitness Premium</title>
+  <meta name="description" content="Zelyra - Moda Fitness Premium. Conforto, caimento perfeito e estilo sem transparência. Compre direto pelo catálogo.">
+  <link rel="icon" type="image/png" href="logo.png"> <!-- Coloque sua logo em logo.png -->
+
   <style>
-    :root{
-      --bg:#0a0a0a; --card:#121212; --text:#f2f2f2; --muted:#b8b8b8;
-      --stroke:#1f1f1f; --gold:#e4b17c; --gold-2:#d19a63; --primary:#ff9900; --primary-2:#e68a00;
-      --r:18px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0} body{font-family:Inter,system-ui,Arial,sans-serif;background:radial-gradient(80% 50% at 80% -10%,#1c1c1c 0,#000 60%);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:30;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
-    .nav{height:70px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:10px;align-items:center} .brand img{height:34px} .brand span{letter-spacing:.2rem;color:var(--gold);font-weight:800}
-    .menu a{color:var(--muted);margin-left:16px;font-weight:600} .menu a:hover{color:#fff}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;font-weight:700}
-    .btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1a1a1a}
-    .btn.gold:hover{filter:brightness(1.05)}
-    .btn.ghost{border:1px solid var(--stroke);color:var(--muted)} .btn.ghost:hover{border-color:#2b2b2b;color:#fff}
-    .hero{padding:54px 0 28px;text-align:center}
-    .hero h1{font-size:clamp(28px,5vw,48px);margin:10px 0;background:linear-gradient(180deg,#fff,#cfcfcf);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
-    .hero p{color:var(--muted);max-width:720px;margin:0 auto 18px}
-    .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-    /* filtros */
-    .filters{margin:18px 0 8px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .chip{border:1px solid var(--stroke);padding:8px 12px;border-radius:999px;color:#ddd;cursor:pointer;font-weight:600}
-    .chip.active{background:#1a1a1a;border-color:#2b2b2b}
-    .search{flex:1;min-width:220px}
-    .search input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--stroke);background:#0e0e0e;color:#fff}
-    /* grid */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:600px){.grid{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,#151515,#0f0f0f);border:1px solid var(--stroke);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
-    .img{aspect-ratio:4/5;background:#0c0c0c;position:relative;overflow:hidden}
-    .img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-    .card:hover .img img{transform:scale(1.04)}
-    .badge{position:absolute;top:12px;left:12px;background:#00000066;border:1px solid #2c2c2c;color:#eee;padding:6px 10px;border-radius:999px;font-size:12px}
-    .content{padding:14px 16px}
-    .title{font-weight:700;margin:6px 0}
-    .price{color:var(--gold);font-weight:800;margin-bottom:10px}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .btn.sm{padding:10px 12px;border-radius:12px;font-weight:800}
-    .btn.buy{background:var(--primary);color:#fff} .btn.buy:hover{background:var(--primary-2)}
-    .btn.wa{border:1px solid var(--stroke);color:#fff} .btn.wa:hover{border-color:#2b2b2b}
-    /* faq & footer */
-    section{padding:34px 0}
-    .faq h3{text-align:center;color:var(--gold);margin-bottom:12px}
-    details{background:#131313;border:1px solid var(--stroke);border-radius:12px;padding:12px;margin:8px 0}
-    details summary{cursor:pointer;font-weight:700}
-    details p{color:#d0d0d0}
-    footer{text-align:center;color:#8a8a8a;border-top:1px solid var(--stroke);padding:26px 0}
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background: #000;
+      border-bottom: 1px solid #333;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #f0b67f;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #fff;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      border-radius: 30px;
+      background: #f0b67f;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .catalogo {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .produto {
+      background: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .produto img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .produto h3 {
+      margin: 15px 0 5px;
+      color: #f0b67f;
+    }
+
+    .produto p {
+      color: #ccc;
+      margin: 0 0 10px;
+    }
+
+    .produto a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #f0b67f;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="container nav">
-      <div class="brand"><img src="logo.png" alt="ZELYRA"><span>ZELYRA</span></div>
-      <nav class="menu">
-        <a href="#catalogo">Catálogo</a>
-        <a href="#faq">FAQ</a>
-        <a href="https://wa.me/5547997695133" target="_blank" rel="noopener">WhatsApp</a>
-      </nav>
-    </div>
+    <img src="logo.png" alt="Zelyra Logo">
+    <nav>
+      <a href="#">Catálogo</a>
+      <a href="https://wa.me/554799999999" target="_blank">WhatsApp</a>
+      <a href="https://www.instagram.com/zelyra" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@zelyra" target="_blank">TikTok</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="hero container" id="topo">
-      <img src="logo.png" alt="Zelyra" style="height:54px;opacity:.9">
-      <h1>Moda Fitness Premium</h1>
-      <p>Conforto que acompanha o movimento, caimento sem transparência e modelagem que valoriza. Envio rápido e suporte próximo.</p>
-      <div class="cta">
-        <a class="btn gold" href="https://link.mercadopago.com.br/zelyra" target="_blank" rel="noopener">Comprar agora</a>
-        <a class="btn ghost" href="https://instagram.com/zelyra_oficial" target="_blank" rel="noopener">Instagram</a>
-        <a class="btn ghost" href="https://www.tiktok.com/@zelyra_oficial" target="_blank" rel="noopener">TikTok</a>
-      </div>
-    </section>
+  <section class="hero">
+    <h1>Moda Fitness Premium</h1>
+    <p>Conforto que acompanha o movimento, caimento sem transparência e modelagem que valoriza.<br> Envio rápido e suporte próximo.</p>
+    <div class="buttons">
+      <a href="https://link.mercadopago.com.br/zelyra" target="_blank">Comprar Agora</a>
+      <a href="https://www.instagram.com/zelyra" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@zelyra" target="_blank">TikTok</a>
+    </div>
+  </section>
 
-    <section class="container" id="catalogo">
-      <!-- FILTROS -->
-      <div class="filters">
-        <div class="chip active" data-cat="todos">Todos</div>
-        <div class="chip" data-cat="leggings">Leggings</div>
-        <div class="chip" data-cat="tops">Tops</div>
-        <div class="chip" data-cat="conjuntos">Conjuntos</div>
-        <div class="chip" data-cat="shorts">Shorts</div>
-        <div class="search"><input id="q" type="search" placeholder="Buscar por nome/cor..."></div>
-      </div>
+  <section class="catalogo">
+    <div class="produto">
+      <img src="produto1.jpg" alt="Legging Zelyra">
+      <h3>Legging Zelyra</h3>
+      <p>Tecido premium, sem transparência.</p>
+      <a href="https://link.mercadopago.com.br/zelyra" target="_blank">Comprar</a>
+    </div>
 
-      <!-- GRID DE PRODUTOS -->
-      <div class="grid" id="grid"></div>
+    <div class="produto">
+      <img src="produto2.jpg" alt="Top Zelyra">
+      <h3>Top Zelyra</h3>
+      <p>Suporte ideal para treino intenso.</p>
+      <a href="https://link.mercadopago.com.br/zelyra" target="_blank">Comprar</a>
+    </div>
 
-      <div style="text-align:center;margin-top:18px">
-        <a class="btn gold" href="https://link.mercadopago.com.br/zelyra" target="_blank" rel="noopener">Finalizar compra</a>
-      </div>
-    </section>
+    <div class="produto">
+      <img src="produto3.jpg" alt="Conjunto Fitness Zelyra">
+      <h3>Conjunto Fitness</h3>
+      <p>Estilo e performance no mesmo look.</p>
+      <a href="https://link.mercadopago.com.br/zelyra" target="_blank">Comprar</a>
+    </div>
+  </section>
 
-    <section class="container faq" id="faq">
-      <h3>FAQ</h3>
-      <details><summary>Como escolho o tamanho?</summary><p>Use nossa Tabela de Medidas. Ficou entre dois? Recomendamos o maior.</p></details>
-      <details><summary>Posso trocar?</summary><p>Sim. 7 dias para arrependimento (online) e até 30 dias para troca por tamanho/defeito, com produto sem uso e tag.</p></details>
-      <details><summary>As peças transparentam?</summary><p>Selecionamos itens com foco em opacidade. Em cores claras, use underwear nude sem costura para melhor resultado.</p></details>
-      <details><summary>Quais formas de pagamento?</summary><p>Pix, cartão e boleto via Mercado Pago (link de pagamento seguro).</p></details>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 ZELYRA • Atendimento: <a href="https://wa.me/5547997695133" target="_blank" rel="noopener">WhatsApp</a>
-  </footer>
-
-  <script>
-    // ====== EDITAR AQUI: 15 PRODUTOS ======
-    // image: coloque caminho local (ex: "produtos/legging-preta.jpg") ou URL https
-    // mp: link de pagamento Mercado Pago (por produto quando você criar); por enquanto usa o genérico
-    const PRODUTOS = [
-      {id:"c1", nome:"Conjunto Essential Black", cat:"conjuntos", preco:229.90, image:"produtos/conj-essential-black.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"c2", nome:"Conjunto Sculpt Rose",   cat:"conjuntos", preco:249.90, image:"produtos/conj-sculpt-rose.jpg",     mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"c3", nome:"Conjunto Carbon Luxe",   cat:"conjuntos", preco:279.90, image:"produtos/conj-carbon-luxe.jpg",     mp:"https://link.mercadopago.com.br/zelyra"},
-
-      {id:"l1", nome:"Legging High-Waist Carbon", cat:"leggings", preco:159.90, image:"produtos/leg-carbon.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"l2", nome:"Legging Sculpt Noir",       cat:"leggings", preco:169.90, image:"produtos/leg-sculpt-noir.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"l3", nome:"Legging Opaca Rose",        cat:"leggings", preco:169.90, image:"produtos/leg-opaca-rose.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"l4", nome:"Legging Power Navy",        cat:"leggings", preco:169.90, image:"produtos/leg-power-navy.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-
-      {id:"t1", nome:"Top Essential Suporte+",  cat:"tops", preco:109.90, image:"produtos/top-essential.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"t2", nome:"Top Sculpt Cross",        cat:"tops", preco:119.90, image:"produtos/top-sculpt-cross.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"t3", nome:"Top Opacity Pro",         cat:"tops", preco:119.90, image:"produtos/top-opacity-pro.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"t4", nome:"Top AirFlex",             cat:"tops", preco:99.90,  image:"produtos/top-airflex.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-
-      {id:"s1", nome:"Short BodyLift Black",    cat:"shorts", preco:99.90,  image:"produtos/short-bodylift.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"s2", nome:"Short Compress Rose",     cat:"shorts", preco:109.90, image:"produtos/short-compress-rose.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"s3", nome:"Short Tech Navy",         cat:"shorts", preco:109.90, image:"produtos/short-tech-navy.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-      {id:"s4", nome:"Short Pockets Runner",    cat:"shorts", preco:119.90, image:"produtos/short-pockets.jpg", mp:"https://link.mercadopago.com.br/zelyra"},
-    ];
-    // =======================================
-
-    const grid = document.getElementById('grid');
-    const fmt = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-    function whatsMsg(p){ return `https://wa.me/5547997695133?text=${encodeURIComponent(
-      `Olá! Tenho interesse em *${p.nome}* (${fmt(p.preco)}). Pode me ajudar com tamanhos e envio?`
-    )}`;}
-    function mpLink(p){ return `${p.mp}?produto=${encodeURIComponent(p.nome)}&valor=${encodeURIComponent(fmt(p.preco))}`;}
-
-    function render(list){
-      grid.innerHTML = list.map(p => `
-        <article class="card">
-          <div class="img">
-            <img src="${p.image}" alt="${p.nome}" loading="lazy" onerror="this.src='https://picsum.photos/seed/${encodeURIComponent(p.id)}/800/1000'">
-            <span class="badge">${p.cat}</span>
-          </div>
-          <div class="content">
-            <div class="title">${p.nome}</div>
-            <div class="price">${fmt(p.preco)}</div>
-            <div class="row">
-              <a class="btn sm buy" href="${mpLink(p)}" target="_blank" rel="noopener">Comprar</a>
-              <a class="btn sm wa"  href="${whatsMsg(p)}" target="_blank" rel="noopener">WhatsApp</a>
-            </div>
-          </div>
-        </article>
-      `).join('');
-    }
-
-    // filtros
-    let categoria = 'todos';
-    let termo = '';
-    const chips = [...document.querySelectorAll('.chip')];
-    const input = document.getElementById('q');
-
-    function applyFilters(){
-      const base = PRODUTOS.filter(p => categoria==='todos' ? true : p.cat===categoria);
-      const q = termo.trim().toLowerCase();
-      const f = q ? base.filter(p => (p.nome.toLowerCase().includes(q) || p.cat.includes(q))) : base;
-      render(f);
-    }
-
-    chips.forEach(c => c.addEventListener('click', () => {
-      chips.forEach(x => x.classList.remove('active'));
-      c.classList.add('active');
-      categoria = c.dataset.cat;
-      applyFilters();
-    }));
-
-    input.addEventListener('input', e => { termo = e.target.value; applyFilters(); });
-
-    // inicial
-    render(PRODUTOS);
-  </script>
 </body>
 </html>
