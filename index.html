@@ -1,51 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zelyra Store - Moda Fitness Premium</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZELYRA – Moda Fitness Premium</title>
   <style>
+    :root {--gold:#d4af37; --bg:#000; --text:#fff;}
     body {
-      margin: 0;
+      margin:0; background:var(--bg); color:var(--text);
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #000000, #111111);
-      color: white;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; min-height:100vh;
     }
-    h1 {
-      font-size: 3rem;
-      color: #d4af37; /* dourado */
+    img.logo {max-height:64px; margin-bottom:24px;}
+    h1 {font-size:2.2rem; color:var(--gold); margin-bottom:12px;}
+    p {font-size:1.1rem; max-width:600px; margin:0 auto 32px; line-height:1.4;}
+    .buttons {display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:32px;}
+    a.btn {
+      display:inline-block; padding:12px 22px; border-radius:28px; text-decoration:none;
+      font-weight:600; background:var(--gold); color:#000; transition:.2s;
     }
-    p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      color: #ccc;
-    }
-    .btn {
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #d4af37;
-      color: black;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background: white;
-      color: black;
-    }
+    a.btn:hover {filter:brightness(1.1);}
   </style>
 </head>
 <body>
-  <h1>ZELYRA</h1>
-  <p>Moda Fitness Premium Feminina</p>
-  <a href="#" class="btn">Catálogo em breve</a>
+  <img src="logo.png" alt="ZELYRA" class="logo" />
+  <h1>Moda Fitness Premium</h1>
+  <p>Moda fitness sofisticada e funcional. Peças que unem estilo, performance e exclusividade.</p>
+  <div class="buttons">
+    <a class="btn" href="https://wa.me/5547997695133" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn" href="https://www.instagram.com/zelyra_oficial" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn" href="https://www.tiktok.com/@zelyra" target="_blank" rel="noopener">TikTok</a>
+  </div>
+  <a class="btn" href="https://link.mercadopago.com.br/zelyra" target="_blank" rel="noopener">Comprar Agora</a>
 </body>
 </html>
