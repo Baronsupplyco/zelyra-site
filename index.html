@@ -1,206 +1,174 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZELYRA — Moda Fitness Feminina</title>
-  <meta name="description" content="Moda fitness feminina premium: leveza, conforto e caimento que valoriza. Envio rápido e atendimento próximo no WhatsApp." />
-  <link rel="icon" href="arquivo_0000000024fc61f9b4d20b2d8ce9ea13.png" />
-
-  <!-- Tipos elegantes -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZELYRA | Moda Fitness Premium</title>
   <style>
-    :root{
-      /* Paleta feminina clara */
-      --bg:#FDECF0;          /* rosé pastel suave (fundo) */
-      --panel:#FFFFFF;       /* cartões/barras */
-      --line:#F4CDD5;        /* bordas nude */
-      --text:#333333;        /* texto principal */
-      --muted:#6B6B6B;       /* texto secundário */
-      --rose:#E9B3C7;        /* rosé gold (ação) */
-      --rose-strong:#E29BB2; /* rosé mais forte (hover) */
-      --accent:#E6A16D;      /* cobre (detalhe) */
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.06);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-
-    /* Header claro */
-    header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(255,255,255,.85);
-      backdrop-filter:saturate(140%) blur(8px);
-      border-bottom:1px solid var(--line);
-    }
-    .nav{max-width:1120px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:14px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{height:40px;border-radius:10px;border:1px solid var(--line)}
-    .brand b{letter-spacing:.35em;color:#E29BB2;font-weight:800}
-    .menu{margin-left:auto;display:flex;gap:10px}
-    .menu a{
-      padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;
-    }
-    .menu a:hover{background:#fff3f7}
-
-    /* Hero claro e feminino */
-    .hero{
-      background:
-        radial-gradient(1000px 400px at 50% -60%, rgba(233,179,199,.35), transparent),
-        var(--bg);
-      text-align:center; padding:38px 16px 22px; border-bottom:1px solid var(--line);
-    }
-    .hero-inner{max-width:1120px;margin:auto}
-    .hero .logo-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px}
-    .hero h1{
-      font-family:"Playfair Display",serif;
-      font-size:clamp(30px,6vw,50px); line-height:1.06; margin:2px 0 8px;
-    }
-    .hero p{color:var(--muted);max-width:760px;margin:0 auto 16px}
-    .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-    .btn{
-      display:inline-block;font-weight:800;border-radius:999px;padding:14px 20px;
-      box-shadow:var(--shadow);
-    }
-    .btn.primary{background:var(--rose);color:#5b2d3a;border:1px solid #f3d2dc}
-    .btn.primary:hover{background:var(--rose-strong)}
-    .btn.ghost{border:1px solid var(--rose);color:#7A3C4C;background:#fff}
-    .btn.ghost:hover{background:#fff3f7}
-
-    /* Conteúdo */
-    .wrap{max-width:1120px;margin:auto;padding:0 16px}
-    h2{
-      font-family:"Playfair Display",serif;
-      margin:18px 0 8px; color:#4a3b40; font-weight:700;
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: #fffafc;
+      color: #333;
     }
 
-    /* Grid de produtos */
-    .grid{display:grid;gap:16px;margin:10px 0 60px}
-    @media (min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (min-width:920px){.grid{grid-template-columns:repeat(3,1fr)}}
-
-    .card{
-      background:var(--panel); border:1px solid var(--line);
-      border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;
-      box-shadow:var(--shadow);
-    }
-    .thumb{aspect-ratio:4/5; background:#fff; object-fit:cover}
-    .info{padding:14px;display:flex;flex-direction:column;gap:8px}
-    .title{font-weight:800}
-    .muted{color:var(--muted);font-size:.95rem}
-    .price{color:#7A3C4C;font-weight:900}
-    .actions{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
-    .buy{
-      flex:1;text-align:center;background:var(--rose);color:#5b2d3a;padding:10px;border-radius:999px;font-weight:800;border:1px solid #f3d2dc
-    }
-    .buy:hover{background:var(--rose-strong)}
-    .wa{
-      flex:1;text-align:center;border:1px solid var(--rose);color:#7A3C4C;background:#fff;padding:10px;border-radius:999px;font-weight:800
-    }
-    .wa:hover{background:#fff3f7}
-
-    /* Rodapé */
-    footer{border-top:1px solid var(--line);text-align:center;color:#7b7b7b;padding:20px;background:#fff}
-
-    /* WhatsApp flutuante */
-    .wa-float{
-      position:fixed;right:14px;bottom:14px;background:#25D366;color:#06351b;
-      font-weight:900;padding:14px 18px;border-radius:999px;z-index:60;box-shadow:var(--shadow)
+    header {
+      background: #fff;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
 
-    /* Banner hero opcional com imagem */
-    .hero-img{
-      max-width:1120px; margin:14px auto 0; border-radius:16px; overflow:hidden;
-      border:1px solid var(--line); box-shadow:var(--shadow);
+    header img {
+      height: 40px;
     }
-    .hero-img img{width:100%; height:auto; display:block}
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #d46a85;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #ffe6f0, #fff);
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      color: #d46a85;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      margin: 8px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      background: #d46a85;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #b8566d;
+    }
+
+    .catalogo {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .catalogo h3 {
+      text-align: center;
+      font-size: 26px;
+      color: #d46a85;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .produto {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .produto:hover {
+      transform: translateY(-5px);
+    }
+
+    .produto img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .produto h4 {
+      margin: 12px 0 6px;
+      color: #333;
+    }
+
+    .produto p {
+      color: #d46a85;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .produto a {
+      display: block;
+      padding: 10px;
+      background: #25d366;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 0 0 12px 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      background: #fff;
+      color: #666;
+      border-top: 1px solid #eee;
+    }
   </style>
 </head>
 <body>
-
-<!-- Header -->
-<header>
-  <div class="nav">
-    <div class="brand">
-      <img src="arquivo_0000000024fc61f9b4d20b2d8ce9ea13.png" alt="Logo Zelyra">
-      <b>ZELYRA</b>
-    </div>
-    <nav class="menu">
+  <header>
+    <!-- LOGO INSERIDA -->
+    <img src="arquivo_0000000024fc61f9b4d20b2d8ce9ea13.png" alt="Logo Zelyra">
+    
+    <nav>
       <a href="#catalogo">Catálogo</a>
-      <a href="https://wa.me/5547997695133" target="_blank">WhatsApp</a>
+      <a href="https://wa.me/55SEUNUMERO">WhatsApp</a>
+      <a href="https://instagram.com/seuperfil">Instagram</a>
+      <a href="https://tiktok.com/@seuperfil">TikTok</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="logo-row">
-      <img src="arquivo_0000000024fc61f9b4d20b2d8ce9ea13.png" alt="Zelyra" style="height:38px;border-radius:8px;border:1px solid var(--line)">
-      <span style="letter-spacing:.35em;color:#E29BB2;font-weight:800">ZELYRA</span>
-    </div>
-    <h1>Moda Fitness Feminina — leve, clean e premium</h1>
-    <p>Peças com caimento que valoriza, zero transparência e conforto real para treinar e viver. Envio rápido e suporte direto no WhatsApp.</p>
-    <div class="cta">
-      <a class="btn primary" href="#catalogo">Ver Catálogo</a>
-      <a class="btn ghost" href="https://wa.me/5547997695133?text=Quero%20comprar%20Zelyra!" target="_blank">Comprar no WhatsApp</a>
-    </div>
-  </div>
-
-  <!-- Se tiver subido o hero.jpg do pack, ele aparece aqui (senão, pode remover este bloco) -->
-  <div class="hero-img">
-    <img src="hero.jpg" alt="Coleção Zelyra 2025">
-  </div>
-</section>
-
-<!-- Catálogo -->
-<main class="wrap">
-  <h2 id="catalogo">Coleção 2025</h2>
-  <section class="grid">
-    <!-- 15 produtos (usam produto1.jpg ... produto15.jpg) -->
-    <article class="card"><img class="thumb" src="produto1.jpg" alt="Conjunto Essential Preto"><div class="info"><div class="title">Conjunto Essential — Preto</div><div class="muted">Top + Legging • compressão média</div><div class="price">R$ 199</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Conjunto%20Essential%20Preto">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto2.jpg" alt="Legging Sculpt Chocolate"><div class="info"><div class="title">Legging Sculpt — Chocolate</div><div class="muted">Cós alto • toque acetinado</div><div class="price">R$ 159</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20a%20Legging%20Sculpt%20Chocolate">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto3.jpg" alt="Top Cross Areia"><div class="info"><div class="title">Top Cross — Areia</div><div class="muted">Suporte médio • costas cruzadas</div><div class="price">R$ 99</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Top%20Cross%20Areia">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto4.jpg" alt="Shorts Lift Preto"><div class="info"><div class="title">Shorts Lift — Preto</div><div class="muted">Modelagem que empina</div><div class="price">R$ 89</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Shorts%20Lift%20Preto">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto5.jpg" alt="Conjunto Energy Vinho"><div class="info"><div class="title">Conjunto Energy — Vinho</div><div class="muted">Textura canelada • firme</div><div class="price">R$ 239</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Conjunto%20Energy%20Vinho">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto6.jpg" alt="Legging Seamless Grafite"><div class="info"><div class="title">Legging Seamless — Grafite</div><div class="muted">Sem costura • máximo conforto</div><div class="price">R$ 169</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20a%20Legging%20Seamless%20Grafite">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto7.jpg" alt="Top One Shoulder Preto"><div class="info"><div class="title">Top One Shoulder — Preto</div><div class="muted">Assimétrico • estiloso</div><div class="price">R$ 109</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Top%20One%20Shoulder%20Preto">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto8.jpg" alt="Shorts Pocket Azul"><div class="info"><div class="title">Shorts Pocket — Azul</div><div class="muted">Bolsos laterais • respirável</div><div class="price">R$ 99</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Shorts%20Pocket%20Azul">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto9.jpg" alt="Conjunto Glow Verde"><div class="info"><div class="title">Conjunto Glow — Verde</div><div class="muted">Visual vibrante • performance</div><div class="price">R$ 249</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Conjunto%20Glow%20Verde">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto10.jpg" alt="Legging Rib Preto"><div class="info"><div class="title">Legging Rib — Preto</div><div class="muted">Textura canelada • firme</div><div class="price">R$ 169</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20a%20Legging%20Rib%20Preto">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto11.jpg" alt="Top Zip Coral"><div class="info"><div class="title">Top Zip — Coral</div><div class="muted">Zíper frontal • treino</div><div class="price">R$ 119</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Top%20Zip%20Coral">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto12.jpg" alt="Shorts Textura Areia"><div class="info"><div class="title">Shorts Textura — Areia</div><div class="muted">Leve • macio</div><div class="price">R$ 89</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Shorts%20Textura%20Areia">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto13.jpg" alt="Conjunto Shape Marinho"><div class="info"><div class="title">Conjunto Shape — Marinho</div><div class="muted">Cós duplo • top reforçado</div><div class="price">R$ 239</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Conjunto%20Shape%20Marinho">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto14.jpg" alt="Legging Shine Caramelo"><div class="info"><div class="title">Legging Shine — Caramelo</div><div class="muted">Brilho elegante • comfy</div><div class="price">R$ 179</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20a%20Legging%20Shine%20Caramelo">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
-
-    <article class="card"><img class="thumb" src="produto15.jpg" alt="Top Halter Preto"><div class="info"><div class="title">Top Halter — Preto</div><div class="muted">Gola alta • seguro</div><div class="price">R$ 109</div><div class="actions"><a class="buy" target="_blank" href="https://wa.me/5547997695133?text=Quero%20o%20Top%20Halter%20Preto">Comprar</a><a class="wa" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a></div></div></article>
+  <section class="hero">
+    <h2>Moda Fitness Premium</h2>
+    <p>Sem transparência, modelagem que valoriza e envio rápido.</p>
+    <a href="#catalogo" class="btn">Ver Catálogo</a>
+    <a href="https://wa.me/55SEUNUMERO" class="btn">Comprar no WhatsApp</a>
   </section>
-</main>
 
-<!-- Rodapé -->
-<footer>© <span id="y"></span> ZELYRA. Todos os direitos reservados.</footer>
+  <section id="catalogo" class="catalogo">
+    <h3>Coleção 2025</h3>
+    <div class="grid">
+      <!-- Produtos continuam aqui (mesmo bloco de 15 que já te mandei antes) -->
+    </div>
+  </section>
 
-<!-- Botão WhatsApp flutuante -->
-<a class="wa-float" href="https://wa.me/5547997695133?text=Quero%20comprar%20Zelyra!" target="_blank">WhatsApp</a>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+  <footer>
+    © 2025 Zelyra. Moda Fitness Premium para mulheres que brilham.
+  </footer>
 </body>
 </html>
