@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -7,36 +7,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Cabeçalho -->
   <header>
-    <h1>Bem-vindo à Zelyra ⭐</h1>
+    <h1>ZELYRA ★</h1>
     <nav>
       <a href="#">Início</a>
       <a href="#">Produtos</a>
+      <a href="#">Sobre</a>
       <a href="#">Contato</a>
     </nav>
   </header>
 
-  <main>
-    <section id="destaque">
-      <h2>Destaques</h2>
-      <img src="heroi.jpg" alt="Banner principal da Zelyra" width="100%">
-    </section>
+  <!-- Seção Hero -->
+  <section>
+    <h2>Destaques da Semana</h2>
+    <img src="heroi.jpg" alt="Destaque Zelyra" style="max-width:100%; border-radius:8px;">
+  </section>
 
-    <section id="produtos">
-      <h2>Nossos Produtos</h2>
-      <div>
-        <img src="produto1.jpg" alt="Produto 1" width="200">
-        <p>Top + Legg</p>
+  <!-- Produtos -->
+  <section>
+    <h2>Nossos Produtos</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="produto1.jpg" alt="Produto 1">
+        <h3>Legging Premium</h3>
+        <p>R$119,90</p>
+        <button>Comprar</button>
       </div>
-      <div>
-        <img src="produto2.jpg" alt="Produto 2" width="200">
-        <p>Conjunto Fitness</p>
+      <div class="produto">
+        <img src="produto2.jpg" alt="Produto 2">
+        <h3>Top Conforto</h3>
+        <p>R$89,90</p>
+        <button>Comprar</button>
       </div>
-    </section>
-  </main>
+      <div class="produto">
+        <img src="produto3.jpg" alt="Produto 3">
+        <h3>Conjunto Zelyra</h3>
+        <p>R$199,90</p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
 
+  <!-- Rodapé -->
   <footer>
-    <p>&copy; 2025 Zelyra Store - Todos os direitos reservados</p>
+    <p>&copy; 2025 Zelyra Store - Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>
