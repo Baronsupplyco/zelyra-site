@@ -1,61 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ZELYRA - Moda Fitness</title>
-  <link rel="stylesheet" href="estilo.css">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="./estilo.css?v=2">
+  <meta name="description" content="ZELYRA - Moda fitness feminina com estilo, conforto e performance.">
 </head>
 <body>
   <!-- Cabeçalho -->
-  <header>
-    <h1>ZELYRA ★</h1>
-    <nav>
-      <a href="#">Início</a>
-      <a href="#produtos">Produtos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-    </nav>
+  <header class="topbar">
+    <div class="container">
+      <h1 class="logo">ZELYRA <span>★</span></h1>
+      <nav class="menu">
+        <a href="#">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Banner Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <img src="zelyra-logo.png" alt="Logo Zelyra">
-    <h2>Moda Fitness Feminina</h2>
-    <p>Estilo, conforto e performance para o seu dia.</p>
-    <a href="#produtos" class="btn">Ver Coleção</a>
-  </section>
-
-  <!-- Produtos -->
-  <section id="produtos" class="produtos">
-    <h2>Nossos Produtos</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="legging.jpg" alt="Legging Zelyra">
-        <h3>Legging Premium</h3>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h2>Moda Fitness Feminina</h2>
+        <p>Estilo, conforto e performance para o seu dia. Vista-se para conquistar seus objetivos.</p>
+        <a class="btn" href="#produtos">Ver Coleção</a>
       </div>
-      <div class="card">
-        <img src="top.jpg" alt="Top Zelyra">
-        <h3>Top Fitness</h3>
-      </div>
-      <div class="card">
-        <img src="shorts.jpg" alt="Shorts Zelyra">
-        <h3>Shorts Fitness</h3>
-      </div>
-      <div class="card">
-        <img src="camiseta.jpg" alt="Camiseta Zelyra">
-        <h3>Camiseta Dry Fit</h3>
-      </div>
-      <div class="card">
-        <img src="regata.jpg" alt="Regata Zelyra">
-        <h3>Regata Feminina</h3>
+      <div class="hero-media">
+        <img src="zelyra-logo.png" alt="Zelyra" />
       </div>
     </div>
   </section>
 
-  <!-- Rodapé -->
-  <footer>
-    <p>© 2025 ZELYRA - Moda Fitness. Todos os direitos reservados.</p>
+  <!-- PRODUTOS -->
+  <section id="produtos" class="produtos">
+    <div class="container">
+      <h2>Nossos Produtos</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="legging.jpg" alt="Legging Zelyra">
+          <h3>Legging Premium</h3>
+          <p>Compressão, conforto e modelagem perfeita.</p>
+          <a class="btn-sm" href="#">Ver detalhes</a>
+        </article>
+
+        <article class="card">
+          <img src="top.jpg" alt="Top Zelyra">
+          <h3>Top Fitness</h3>
+          <p>Suporte ideal e tecido respirável.</p>
+          <a class="btn-sm" href="#">Ver detalhes</a>
+        </article>
+
+        <article class="card">
+          <img src="shorts.jpg" alt="Shorts Zelyra">
+          <h3>Shorts Treino</h3>
+          <p>Mobilidade e estilo para o seu treino.</p>
+          <a class="btn-sm" href="#">Ver detalhes</a>
+        </article>
+
+        <article class="card">
+          <img src="regata.jpg" alt="Regata Zelyra">
+          <h3>Regata Feminina</h3>
+          <p>Leve e confortável, perfeita para o dia a dia.</p>
+          <a class="btn-sm" href="#">Ver detalhes</a>
+        </article>
+
+        <article class="card">
+          <img src="camiseta.jpg" alt="Camiseta Zelyra">
+          <h3>Camiseta Dry Fit</h3>
+          <p>Tecido dry para máximo desempenho.</p>
+          <a class="btn-sm" href="#">Ver detalhes</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <h2>Sobre a Zelyra</h2>
+      <p>A Zelyra é uma marca de moda fitness focada em qualidade, conforto e estilo.
+        Cada peça é pensada para realçar o seu melhor e acompanhar o seu ritmo.</p>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="contato">
+    <div class="container">
+      <h2>Contato</h2>
+      <p>Fale conosco pelo WhatsApp: <a href="https://wa.me/55SEUNUMERO" target="_blank">clique aqui</a>.</p>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 ZELYRA — Moda Fitness. Todos os direitos reservados.</p>
+    </div>
   </footer>
 </body>
 </html>
