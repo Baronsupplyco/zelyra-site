@@ -1,1 +1,113 @@
+:root{
+  --bg: #0A0A0A;
+  --text: #EDEDED;
+  --muted: #B8B8B8;
+  --gold: #E6B74A;
+  --gold-dark:#B38C2A;
+  --card:#121212;
+  --card-2:#161616;
+  --shadow: 0 12px 28px rgba(0,0,0,.35);
+}
 
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: 'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout utilitário */
+.container{width:min(1180px,92%);margin-inline:auto}
+.padding{padding:72px 0}
+.gold{color:var(--gold)}
+
+/* Topbar */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,10,10,.8); backdrop-filter: blur(8px);
+  border-bottom:1px solid #1d1d1d;
+}
+.nav{display:flex;align-items:center;gap:24px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:700;letter-spacing:.5px}
+.brand small{color:var(--gold)}
+.logo{width:28px;height:28px;border-radius:6px;object-fit:contain}
+
+.menu{margin-left:auto;display:flex;align-items:center;gap:20px}
+.menu a{color:var(--text);text-decoration:none;font-weight:500;opacity:.9}
+.menu a:hover{opacity:1}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;transition:.2s all ease;font-weight:600}
+.btn-gold{background:linear-gradient(90deg,var(--gold),#ffd26b); color:#1a1a1a; box-shadow:0 6px 18px rgba(255,210,107,.25)}
+.btn-gold:hover{filter:brightness(1.06)}
+.btn-ghost{border:1px solid #303030;color:var(--text)}
+.btn-ghost:hover{background:#151515}
+.btn-full{background:#202020;color:#fff;border:1px solid #303030}
+.btn-full:hover{background:#262626}
+
+/* hamburger mobile */
+#menucheck{display:none}
+.hamburger{display:none;margin-left:auto;font-size:28px;cursor:pointer;color:#fff}
+@media (max-width:900px){
+  .hamburger{display:block}
+  .menu{position:fixed;inset:64px 0 auto 0;background:#0b0b0b;display:grid;gap:12px;padding:18px;border-bottom:1px solid #1d1d1d;transform:translateY(-130%);transition:transform .25s ease}
+  #menucheck:checked ~ .menu{transform:none}
+}
+
+/* HERO */
+.hero{position:relative;min-height:72vh;display:grid;place-items:center}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.4)}
+.hero-overlay{position:absolute;inset:0;background: radial-gradient(1200px 600px at 35% 10%,rgba(230,183,74,.18),transparent 60%)}
+.hero-text{position:relative;text-align:center}
+.hero h1{font-size:clamp(28px,4vw,52px);margin:0 0 10px}
+.hero p{color:var(--muted);margin:0 0 24px}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Section Head */
+.section-head{margin-bottom:28px;text-align:center}
+.section-head h2{font-size:clamp(24px,3.3vw,36px);margin:0 0 6px}
+.section-head p{color:var(--muted);margin:0}
+
+/* Grid */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:22px;
+}
+@media (max-width:950px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+/* Card Produto */
+.card{
+  background:linear-gradient(180deg,var(--card),var(--card-2));
+  border:1px solid #1f1f1f;border-radius:18px;overflow:hidden;
+  box-shadow: var(--shadow);
+  display:flex;flex-direction:column
+}
+.card img{width:100%;height:280px;object-fit:cover}
+.card-body{padding:18px;display:grid;gap:8px}
+.card h3{margin:2px 0 0;font-size:20px}
+.card p{margin:0;color:#c9c9c9}
+.price{margin-top:4px;font-weight:700;color:var(--gold);font-size:18px}
+
+/* Sobre */
+.about{background:linear-gradient(180deg,#0b0b0b,#0f0f0f)}
+.about-grid{display:grid;gap:28px;grid-template-columns:1.1fr .9fr;align-items:start}
+.about-box{border:1px solid #1f1f1f;background:#111;border-radius:16px;padding:20px}
+.bullets{display:flex;flex-wrap:wrap;gap:12px;padding:0;margin:14px 0 0;list-style:none}
+.bullets li{background:#161616;border:1px solid #222;padding:8px 12px;border-radius:999px}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}}
+
+.footer{border-top:1px solid #1f1f1f;background:#0a0a0a}
+.footer .container{display:flex;gap:12px;align-items:center;justify-content:space-between;min-height:64px}
+.foot-links{display:flex;gap:16px}
+.foot-links a{color:#cfcfcf;text-decoration:none;opacity:.9}
+.foot-links a:hover{opacity:1}
+
+/* WhatsApp floating */
+.whatsapp{
+  position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;background:#25D366;border:0;box-shadow:0 8px 22px rgba(37,211,102,.35);
+}
+.whatsapp:hover{filter:brightness(1.05)}
