@@ -1,109 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZELYRA - Moda Fitness</title>
+  <title>ZELYRA • Moda Fitness Feminina</title>
+  <meta name="description" content="Zelyra - Moda Fitness Feminina. Estilo, conforto e performance para o seu dia. Conjuntos, tops, shorts, legging, regatas e camisetas.">
+  <link rel="canonical" href="https://zelyrastore.com.br/">
 
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ZELYRA • Moda Fitness Feminina">
+  <meta property="og:description" content="Estilo, conforto e performance para o seu dia.">
+  <meta property="og:image" content="https://zelyrastore.com.br/heroi.jpg">
+  <meta property="og:url" content="https://zelyrastore.com.br/">
+
+  <!-- Favicon / Logo -->
+  <link rel="icon" href="zelyra-logo.png">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+
   <!-- CSS -->
-  <link rel="stylesheet" href="./estilo.css?v=2">
-  <meta name="description" content="ZELYRA - Moda fitness feminina com estilo, conforto e performance.">
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <!-- Cabeçalho -->
-  <header class="topbar">
-    <div class="container">
-      <h1 class="logo">ZELYRA <span>★</span></h1>
-      <nav class="menu">
-        <a href="#">Início</a>
+
+  <!-- Header / Navbar -->
+  <header class="header" id="topo">
+    <div class="container nav">
+      <a href="#topo" class="brand">
+        <img src="zelyra-logo.png" alt="Zelyra" class="logo">
+        <span>ZELYRA</span><b>★</b>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+      <nav class="menu" id="menu">
         <a href="#produtos">Produtos</a>
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
+        <a class="btn" href="https://zelyrastore.com.br" target="_blank" rel="noopener">Loja</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h2>Moda Fitness Feminina</h2>
-        <p>Estilo, conforto e performance para o seu dia. Vista-se para conquistar seus objetivos.</p>
-        <a class="btn" href="#produtos">Ver Coleção</a>
-      </div>
-      <div class="hero-media">
-        <img src="zelyra-logo.png" alt="Zelyra" />
+    <picture>
+      <img src="heroi.jpg" alt="Zelyra - Moda Fitness Feminina" loading="eager">
+    </picture>
+    <div class="hero-content container">
+      <h1>Moda Fitness <span>Feminina</span></h1>
+      <p>Estilo, conforto e performance para o seu dia a dia.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#produtos">Ver Produtos</a>
+        <a class="btn btn-outline" href="https://zelyrastore.com.br" target="_blank" rel="noopener">Comprar agora</a>
       </div>
     </div>
   </section>
 
-  <!-- PRODUTOS -->
-  <section id="produtos" class="produtos">
-    <div class="container">
+  <!-- Produtos -->
+  <section class="section container" id="produtos">
+    <div class="section-title">
       <h2>Nossos Produtos</h2>
-      <div class="grid">
-        <article class="card">
-          <img src="legging.jpg" alt="Legging Zelyra">
-          <h3>Legging Premium</h3>
-          <p>Compressão, conforto e modelagem perfeita.</p>
-          <a class="btn-sm" href="#">Ver detalhes</a>
-        </article>
+      <p>Escolha o seu favorito e garanta já o seu.</p>
+    </div>
 
-        <article class="card">
-          <img src="top.jpg" alt="Top Zelyra">
+    <div class="grid">
+      <!-- Card 1 -->
+      <article class="card">
+        <img src="top.jpg" alt="Top Fitness Zelyra" loading="lazy">
+        <div class="card-body">
           <h3>Top Fitness</h3>
-          <p>Suporte ideal e tecido respirável.</p>
-          <a class="btn-sm" href="#">Ver detalhes</a>
-        </article>
+          <p>Alto suporte, tecido respirável.</p>
+          <div class="price">R$ 79,90</div>
+          <a class="btn btn-primary" href="https://zelyrastore.com.br" target="_blank" rel="noopener">Comprar</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <img src="shorts.jpg" alt="Shorts Zelyra">
-          <h3>Shorts Treino</h3>
-          <p>Mobilidade e estilo para o seu treino.</p>
-          <a class="btn-sm" href="#">Ver detalhes</a>
-        </article>
+      <!-- Card 2 -->
+      <article class="card">
+        <img src="short.jpg" alt="Short Fitness Zelyra" loading="lazy">
+        <div class="card-body">
+          <h3>Short Fitness</h3>
+          <p>Compressão na medida, não marca.</p>
+          <div class="price">R$ 69,90</div>
+          <a class="btn btn-primary" href="https://zelyrastore.com.br" target="_blank" rel="noopener">Comprar</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <img src="regata.jpg" alt="Regata Zelyra">
-          <h3>Regata Feminina</h3>
-          <p>Leve e confortável, perfeita para o dia a dia.</p>
-          <a class="btn-sm" href="#">Ver detalhes</a>
-        </article>
+      <!-- Card 3 -->
+      <article class="card">
+        <img src="legging.jpg" alt="Legging Zelyra" loading="lazy">
+        <div class="card-body">
+          <h3>Legging</h3>
+          <p>Modelagem premium e conforto total.</p>
+          <div class="price">R$ 119,90</div>
+          <a class="btn btn-primary" href="https://zelyrastore.com.br" target="_blank" rel="noopener">Comprar</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <img src="camiseta.jpg" alt="Camiseta Zelyra">
-          <h3>Camiseta Dry Fit</h3>
-          <p>Tecido dry para máximo desempenho.</p>
-          <a class="btn-sm" href="#">Ver detalhes</a>
-        </article>
+      <!-- Card 4 -->
+      <article class="card">
+        <img src="regata.jpg" alt="Regata Fitness Zelyra" loading="lazy">
+        <div class="card-body">
+          <h3>Regata</h3>
+          <p>Tecido leve e toque macio.</p>
+          <div class="price">R$ 59,90</div>
+          <a class="btn btn-primary" href="https://zelyrastore.com.br" target="_blank" rel="noopener">Comprar</a>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card">
+        <img src="camisa.jpg" alt="Camiseta Fitness Zelyra" loading="lazy">
+        <div class="card-body">
+          <h3>Camiseta</h3>
+          <p>Respirável e com caimento perfeito.</p>
+          <div class="price">R$ 69,90</div>
+          <a class="btn btn-primary" href="https://zelyrastore.com.br" target="_blank" rel="noopener">Comprar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section class="section section-dark" id="sobre">
+    <div class="container grid-2">
+      <div>
+        <h2>Sobre a ZELYRA</h2>
+        <p>
+          A Zelyra nasceu para elevar a sua performance e autoestima.
+          Nossa coleção combina tecnologia têxtil com um design pensado
+          para o corpo feminino — peças que abraçam sem apertar, valorizam
+          sem marcar e te acompanham do treino ao dia a dia.
+        </p>
+        <p>Qualidade, conforto e estilo na mesma medida.</p>
+      </div>
+      <div class="about-badge">
+        <span>Qualidade</span>
+        <span>Performance</span>
+        <span>Conforto</span>
       </div>
     </div>
   </section>
 
-  <!-- SOBRE -->
-  <section id="sobre" class="sobre">
-    <div class="container">
-      <h2>Sobre a Zelyra</h2>
-      <p>A Zelyra é uma marca de moda fitness focada em qualidade, conforto e estilo.
-        Cada peça é pensada para realçar o seu melhor e acompanhar o seu ritmo.</p>
+  <!-- Contato -->
+  <section class="section" id="contato">
+    <div class="container contact">
+      <h2>Fale com a gente</h2>
+      <p>Atendimento rápido via WhatsApp e redes sociais.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="https://wa.me/55XXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn-outline" href="mailto:contato@zelyrastore.com.br">E-mail</a>
+        <a class="btn btn-outline" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </div>
     </div>
   </section>
 
-  <!-- CONTATO -->
-  <section id="contato" class="contato">
-    <div class="container">
-      <h2>Contato</h2>
-      <p>Fale conosco pelo WhatsApp: <a href="https://wa.me/55SEUNUMERO" target="_blank">clique aqui</a>.</p>
-    </div>
-  </section>
-
-  <!-- RODAPÉ -->
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <p>© 2025 ZELYRA — Moda Fitness. Todos os direitos reservados.</p>
+    <div class="container foot">
+      <p>© <span id="ano"></span> ZELYRA — Todos os direitos reservados.</p>
+      <a href="#topo">Voltar ao topo ↑</a>
     </div>
   </footer>
+
+  <script>
+    // Mobile menu
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // Atualiza ano no rodapé
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Smooth scroll para âncoras internas
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+          menu.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
