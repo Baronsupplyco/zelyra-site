@@ -1,82 +1,105 @@
 :root{
-  --bg: #fff;
-  --text: #222;
-  --muted: #666;
-  --primary: #ff3b93;
-  --primary-dark:#d3156d;
-  --accent: #ffd166;
-  --card:#fafafa;
+  --bg:#101014;
+  --bg2:#0c0c0f;
+  --text:#F9FAFB;
+  --muted:#D8DBE3;
+  --brand:#ff4fa3;       /* rosa principal */
+  --brand-2:#ffb37a;     /* pêssego */
+  --card:#16171d;
+  --white:#fff;
 }
 
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;font-family:Poppins,system-ui,-apple-system; color:var(--text); background:var(--bg);}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#0f0f12 0%, #111218 100%);
+}
 
-.container{width:min(1100px, 92%); margin:0 auto;}
-a{text-decoration:none;color:inherit;}
-.btn{border:0; cursor:pointer; padding:12px 20px; border-radius:10px; font-weight:600;}
-.btn-primary{background:var(--primary); color:#fff;}
-.btn-primary:hover{background:var(--primary-dark);}
-.btn-outline{border:2px solid #333; color:#333; background:transparent;}
-.btn-light{background:#eee; color:#333;}
-.btn-close{background:#f5f5f5;}
+/* NAV */
+.nav{position:sticky;top:0;z-index:30;background:#0b0b0e;border-bottom:1px solid #1c1d23}
+.nav .container{max-width:1100px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:10px;align-items:center}
+.brand img{width:28px;height:28px;border-radius:6px}
+.brand span{font-weight:700;letter-spacing:.08em}
+.nav nav{display:flex;gap:18px;align-items:center}
+.nav a{color:#dfe2ea;text-decoration:none;font-weight:500}
+.nav .btn-outline{border:1px solid #2b2c33;border-radius:10px;padding:8px 14px}
+.nav .btn-outline:hover{border-color:#3b3d47}
 
-.topbar{position:sticky;top:0; z-index:20; background:#111; color:#fff; border-bottom:1px solid #222;}
-.topbar .container{display:flex; align-items:center; gap:20px; height:64px;}
-.brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:1px;}
-.logo{width:34px; height:34px;}
-.nav{margin-left:auto; display:flex; gap:24px;}
-.nav a{color:#fff; opacity:.9;}
-.nav a:hover{opacity:1;}
-.cart-open{background:var(--accent); color:#000; margin-left:10px;}
-#cartCount{background:#000;color:#fff;border-radius:8px;padding:2px 6px;margin-left:8px;}
+/* HERO */
+.hero{position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{
+  width:100%;height:100%;object-fit:cover;filter:saturate(1.05) brightness(.85);
+}
+.hero-bg .overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(10,10,12,.85) 0%, rgba(10,10,12,.6) 40%, rgba(10,10,12,.25) 100%),
+             radial-gradient(1200px 500px at -10% -20%, rgba(255,79,163,.25), transparent 60%),
+             radial-gradient(1200px 500px at 110% 120%, rgba(255,179,122,.25), transparent 60%);
+}
+.hero .container{position:relative;max-width:1100px;margin:0 auto;padding:120px 18px 140px}
+.hero h1{font-size:48px;line-height:1.15;margin:0 0 10px}
+.hero p{color:var(--muted);font-size:18px;margin:0 0 24px}
+.cta{display:flex;gap:14px}
+.btn{
+  background: linear-gradient(180deg, var(--brand) 0%, #ff2f8f 100%);
+  border:none;color:var(--white);padding:14px 20px;border-radius:14px;font-weight:700;text-decoration:none;
+  box-shadow:0 10px 28px rgba(255,79,163,.25);
+}
+.btn:hover{filter:brightness(1.05)}
+.btn.ghost{
+  background:transparent;color:#e7e7ee;border:1px solid #393a43;box-shadow:none
+}
 
-.hero{position:relative; min-height:70vh; display:flex; align-items:center; background:url('https://images.unsplash.com/photo-1541534401786-2077eed87a80?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;}
-.hero-overlay{position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,.45), rgba(0,0,0,.2));}
-.hero-content{position:relative; color:#fff;}
-.hero h1{font-size:44px; margin:0 0 10px; font-weight:700;}
-.hero p{opacity:.95; margin:0 0 22px;}
-.actions{display:flex; gap:12px;}
+/* SECTION */
+.section{padding:72px 0}
+.section.alt{background:linear-gradient(180deg,#111218 0%, #0f0f12 100%)}
+.container{max-width:1100px;margin:0 auto;padding:0 18px}
+h2{font-size:34px;margin:0 0 22px}
 
-.produtos{padding:60px 0;}
-.produtos h2{font-size:28px; margin-bottom:22px;}
-.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px;}
-.card-produto{background:var(--card); border-radius:16px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.06);}
-.card-produto img{width:100%; height:220px; object-fit:cover;}
-.card-body{padding:14px;}
-.badge{display:inline-block; background:var(--primary); color:#fff; font-size:12px; padding:5px 10px; border-radius:99px; margin-bottom:8px;}
-.card-title{font-weight:700; margin:6px 0;}
-.price{font-weight:700; color:#111; font-size:18px;}
-.btn-add{margin-top:8px; width:100%;}
+/* PRODUTOS */
+.grid-produtos{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px
+}
+.card{
+  background:linear-gradient(180deg,#15161c 0%, #13141a 100%);
+  border:1px solid #262730;border-radius:18px;overflow:hidden;position:relative
+}
+.card .badge{
+  position:absolute;left:14px;top:14px;background:var(--brand);
+  color:#111;border-radius:999px;padding:6px 10px;font-weight:700;font-size:.8rem
+}
+.card img{width:100%;height:420px;object-fit:cover}
+.card .info{padding:16px}
+.card h3{margin:4px 0 6px;font-size:20px}
+.card p{margin:0 0 12px;color:#cfd3de;font-weight:400}
+.preco{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.preco .de{color:#a0a6b4;text-decoration:line-through}
+.preco .por{color:#fff}
+.card .btn{display:inline-block}
 
-.beneficios{background:linear-gradient(180deg, #fff, #ffe9f3); padding:50px 0;}
-.beneficios h2{text-align:center; margin:0 0 20px;}
-.beneficios-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
-.beneficios .card{background:#fff; padding:18px; border-radius:16px; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,.05);}
+/* BENEFÍCIOS */
+.beneficios{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.b{border:1px solid #25262f;background:#14151b;border-radius:16px;padding:18px}
+.b h4{margin:0 0 8px}
 
-.sobre{padding:50px 0;}
-.sobre .socials{display:flex; gap:10px; margin-top:10px;}
+/* SOBRE */
+.sobre-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
+.sobre-box{border:1px solid #2a2b35;background:#15161d;border-radius:18px;padding:18px;text-align:center}
+.kpi{font-size:42px;font-weight:800;margin:0}
 
-.footer{background:#111; color:#aaa; padding:20px 0; margin-top:40px;}
-.footer a{color:#fff;}
+/* FOOTER */
+.footer{border-top:1px solid #1e1f27;background:#0b0c10}
+.footer .container{padding:30px 18px;display:flex;justify-content:space-between;align-items:center}
+.footer a{color:#e6e7ef;text-decoration:none}
 
-.cart-sidebar{position:fixed; right:-380px; top:0; width:360px; height:100vh; background:#fff; box-shadow:-10px 0 26px rgba(0,0,0,.15); transition:.3s; z-index:30; display:flex; flex-direction:column;}
-.cart-sidebar.open{right:0;}
-.cart-header{display:flex; align-items:center; justify-content:space-between; padding:16px; border-bottom:1px solid #eee;}
-.cart-items{padding:14px; flex:1; overflow:auto;}
-.cart-item{display:grid; grid-template-columns:64px 1fr 60px; gap:8px; margin-bottom:10px;}
-.cart-item img{width:64px; height:64px; object-fit:cover; border-radius:8px; background:#f3f3f3;}
-.cart-item h4{margin:0; font-size:14px;}
-.cart-item .qtd{display:flex; align-items:center; gap:6px; margin-top:6px;}
-.cart-item .qtd button{width:28px; height:28px;border:1px solid #ddd;border-radius:6px;background:#fafafa;}
-.cart-footer{border-top:1px solid #eee; padding:14px;}
-.frete{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
-.total{display:flex; align-items:center; justify-content:space-between; font-size:18px; margin-bottom:10px;}
-.full{width:100%;}
-.backdrop{position:fixed; inset:0; background:rgba(0,0,0,.35); display:none; z-index:25;}
-.backdrop.show{display:block;}
-
-@media (max-width:768px){
-  .beneficios-grid{grid-template-columns:1fr;}
-  .hero{min-height:60vh;}
-  .hero h1{font-size:34px;}
+/* RESPONSIVO */
+@media (max-width: 900px){
+  .hero h1{font-size:36px}
+  .grid-produtos{grid-template-columns:1fr}
+  .beneficios{grid-template-columns:1fr}
+  .sobre-grid{grid-template-columns:1fr}
 }
