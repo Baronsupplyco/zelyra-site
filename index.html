@@ -28,14 +28,14 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO claro com fallback -->
   <section class="hero">
     <div class="hero-bg">
-      <!-- Troque a imagem abaixo pela sua hero.jpg na pasta /img -->
-      <img src="img/hero.jpg" alt="Zelyra — pedido enviado hoje" />
+      <img id="heroImg" src="img/hero.jpg" alt="Zelyra — estilo e performance" />
       <div class="overlay"></div>
     </div>
     <div class="container hero-content">
+      <span class="tagline">Nova coleção • Envio imediato</span>
       <h1>Moda Fitness Feminina</h1>
       <p>Estilo, conforto e performance para o seu dia a dia.</p>
       <div class="cta">
@@ -54,10 +54,15 @@
         <!-- Card 1 — Macaquinho Preto -->
         <article class="card">
           <div class="badge">Destaque</div>
-          <img src="img/macaquinho-preto.jpg" alt="Macaquinho Fitness Zelyra Preto" />
+          <img id="imgMacaquinho" src="img/macaquinho-preto.jpg" alt="Macaquinho Fitness Zelyra Preto" />
           <div class="info">
             <h3>Macaquinho Fitness Premium</h3>
             <p>Caimento perfeito e tecido confortável para treinos intensos.</p>
+            <ul class="bullets">
+              <li>Tecido compressivo</li>
+              <li>Modelagem que valoriza</li>
+              <li>Logo ZELYRA dourado</li>
+            </ul>
             <div class="preco">
               <span class="de">R$ 149,90</span>
               <span class="por">R$ <strong>99,90</strong></span>
@@ -68,10 +73,15 @@
 
         <!-- Card 2 — Conjunto Rosa -->
         <article class="card">
-          <img src="img/conjunto-rosa.jpg" alt="Conjunto Zelyra Rosa (top + short)" />
+          <img id="imgConjunto" src="img/conjunto-rosa.jpg" alt="Conjunto Zelyra Rosa (top + short)" />
           <div class="info">
             <h3>Conjunto Zelyra Rosa</h3>
             <p>Design moderno, modelagem premium e conforto absoluto.</p>
+            <ul class="bullets">
+              <li>Respirável e macio</li>
+              <li>Secagem rápida</li>
+              <li>Ideal para treinos intensos</li>
+            </ul>
             <div class="preco">
               <span class="de">R$ 159,90</span>
               <span class="por">R$ <strong>119,90</strong></span>
@@ -133,5 +143,24 @@
       <p><a href="https://www.instagram.com/zelyra.oficial" target="_blank">Instagram</a> · <a href="https://wa.me/5547997695133" target="_blank">WhatsApp</a></p>
     </div>
   </footer>
+
+  <!-- FALLBACK de imagens caso a pasta /img ainda não tenha sido criada -->
+  <script>
+    const fallback = {
+      hero: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1400&auto=format&fit=crop',
+      macaquinho: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop',
+      conjunto: 'https://images.unsplash.com/photo-1526401485004-2fda9f4d2753?q=80&w=1200&auto=format&fit=crop'
+    };
+
+    document.getElementById('heroImg').addEventListener('error', e=>{
+      e.target.src = fallback.hero;
+    });
+    document.getElementById('imgMacaquinho').addEventListener('error', e=>{
+      e.target.src = fallback.macaquinho;
+    });
+    document.getElementById('imgConjunto').addEventListener('error', e=>{
+      e.target.src = fallback.conjunto;
+    });
+  </script>
 </body>
 </html>
