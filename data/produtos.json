@@ -1,30 +1,26 @@
 [
   {
     "id": "macaquinho-preto",
-    "nome": "Macaquinho Zelyra Preto",
-    "preco": 139.90,
-    "destaque": true,
-    "img": "https://raw.githubusercontent.com/Baronsupplyco/site-zelrya/main/heroi.jpg"
+    "nome": "Macaquinho Fitness Preto",
+    "descricao": "Cintura alta, tecido de compressão e logo dourado ZELYRA. Conforto premium que modela sem marcar.",
+    "preco": 99.90,
+    "img": "imagem/macaquinho-preto.jpg",
+    "tag": "Premium"
   },
   {
-    "id": "top-fitness",
-    "nome": "Top Fitness Zelyra",
-    "preco": 89.90,
-    "destaque": true,
-    "img": "https://images.unsplash.com/photo-1518313533535-85f3de2aa6dd?q=80&w=1200&auto=format&fit=crop"
+    "id": "conjunto-rosa",
+    "nome": "Conjunto Zelyra Rosa (top + short)",
+    "descricao": "Design moderno com conforto absoluto para treinos intensos.",
+    "preco": 119.90,
+    "img": "imagem/conjunto-rosa.jpg",
+    "tag": "Mais vendido"
   },
   {
-    "id": "legging",
-    "nome": "Legging Fitness",
-    "preco": 129.90,
-    "destaque": false,
-    "img": "https://images.unsplash.com/photo-1540202404-8d99805e1b0c?q=80&w=1200&auto=format&fit=crop"
-  },
-  {
-    "id": "conjunto",
-    "nome": "Conjunto Zelyra",
-    "preco": 189.90,
-    "destaque": false,
-    "img": "https://images.unsplash.com/photo-1594737625785-c6683fc5b9e7?q=80&w=1200&auto=format&fit=crop"
+    "id": "legging-premium",
+    "nome": "Legging Premium",
+    "descricao": "Conforto e sustentação ideal para treino e lifestyle. Cós anatômico.",
+    "preco": 149.90,
+    "img": "https://images.unsplash.com/photo-1595433707802-4f4d9d1c2e7a?q=80&w=1200",
+    "tag": "Novo"
   }
 ]
