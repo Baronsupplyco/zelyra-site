@@ -1,43 +1,28 @@
-// api/create-preference.js
-const mercadopago = require('mercadopago');
+import mercadopago from "mercadopago";
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST'){
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
-  }
-
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(405).json({error:'Método não permitido'});
   try{
-    mercadopago.configure({
-      access_token: process.env.MP_ACCESS_TOKEN
-    });
-
     const { items } = req.body;
+    mercadopago.configure({ access_token: process.env.MP_ACCESS_TOKEN });
 
     const preference = {
-      items: items.map(i => ({
-        title: i.title,
-        quantity: i.quantity,
-        unit_price: i.unit_price,
-        currency_id: 'BRL',
-        picture_url: i.picture_url
+      items: items.map(it => ({
+        title: it.title, quantity: Number(it.quantity),
+        currency_id: it.currency_id || 'BRL', unit_price: Number(it.unit_price)
       })),
-      payment_methods: {
-        excluded_payment_types: [],
-        installments: 12 // permitir parcelamento
-      },
       back_urls: {
-        success: "https://zelyra-site.vercel.app/sucesso.html",
-        failure: "https://zelyra-site.vercel.app/falha.html",
-        pending: "https://zelyra-site.vercel.app/pending.html"
+        success: `${req.headers.origin}/sucesso.html`,
+        failure: `${req.headers.origin}/erro.html`,
+        pending: `${req.headers.origin}/sucesso.html`
       },
-      auto_return: "approved" // volta para success automaticamente quando aprovado
+      auto_return: "approved"
     };
 
-    const resp = await mercadopago.preferences.create(preference);
-    res.status(200).json({ init_point: resp.body.init_point });
-  }catch(e){
-    console.error('MP error', e);
-    res.status(500).json({ error: 'Erro ao criar preferência' });
+    const response = await mercadopago.preferences.create(preference);
+    return res.status(200).json({ init_point: response.body.init_point });
+  }catch(err){
+    console.error('MP erro:', err);
+    return res.status(500).json({error:'Falha ao criar preferência'});
   }
-};
+}
