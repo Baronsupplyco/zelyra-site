@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZELYRA | Moda Fitness Premium</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="zelyra-logo.png" alt="Zelyra Logo" class="logo">
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <button id="carrinho-btn">🛒 Carrinho (<span id="carrinho-count">0</span>)</button>
+    </nav>
+  </header>
 
+  <section class="hero">
+    <h1>Moda Fitness Feminina</h1>
+    <p>Estilo, conforto e performance premium com envio imediato.</p>
+    <a href="#produtos" class="btn">Ver Produtos</a>
+  </section>
+
+  <main id="produtos" class="produtos">
+    <div class="produto">
+      <img src="imagem/macaquinho-preto.jpg" alt="Macaquinho Preto">
+      <h2>Macaquinho Fitness Preto</h2>
+      <p>R$ 99,90</p>
+      <button onclick="adicionarCarrinho('Macaquinho Fitness Preto', 99.90)">Adicionar</button>
+    </div>
+
+    <div class="produto">
+      <img src="imagem/conjunto-rosa.jpg" alt="Conjunto Rosa">
+      <h2>Conjunto Rosa (Top + Short)</h2>
+      <p>R$ 119,90</p>
+      <button onclick="adicionarCarrinho('Conjunto Rosa', 119.90)">Adicionar</button>
+    </div>
+  </main>
+
+  <section id="sobre">
+    <h2>Sobre a ZELYRA</h2>
+    <p>A ZELYRA nasceu para elevar sua performance com estilo e sofisticação. Peças premium que unem moda e esporte.</p>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>WhatsApp: <a href="https://wa.me/5547997695133">+55 47 99769-5133</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 ZELYRA - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
