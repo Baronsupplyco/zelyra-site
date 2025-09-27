@@ -1,166 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZELYRA — Moda Fitness Feminina</title>
-  <meta name="description" content="Zelyra: moda fitness premium com estilo, conforto e performance. Envio imediato para todo o Brasil.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="zelyra-logo.png" type="image/png"/>
-  <link rel="stylesheet" href="estilo.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZELYRA – Moda Fitness Feminina Premium</title>
+  <meta name="description" content="ZELYRA • Moda fitness feminina premium. Conforto, estilo e performance. Envio imediato para todo o Brasil. Compre pelo WhatsApp." />
+  <meta property="og:title" content="ZELYRA – Moda Fitness Feminina Premium" />
+  <meta property="og:description" content="Conforto, estilo e performance. Peças premium com envio imediato." />
+  <meta property="og:image" content="https://zelyra-site.vercel.app/img/hero.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="img/zelyra-logo.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="nav">
-    <div class="container">
-      <div class="brand">
-        <img src="zelyra-logo.png" alt="Zelyra" />
-        <span>ZELYRA</span>
-      </div>
-      <nav>
-        <a href="#produtos">Produtos</a>
-        <a href="#beneficios">Benefícios</a>
-        <a href="#sobre">Sobre</a>
-        <a class="btn-outline" href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20ZELYRA%20agora.">WhatsApp</a>
-      </nav>
+
+<header class="site-header">
+  <div class="container header-wrap">
+    <a class="brand" href="#">
+      <img src="img/zelyra-logo.png" alt="ZELYRA" class="logo" />
+      <span>ZELYRA</span>
+    </a>
+    <nav class="nav">
+      <a href="#produtos">Produtos</a>
+      <a href="#beneficios">Benefícios</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="ZELYRA Moda Fitness Feminina" />
+    <div class="overlay"></div>
+  </div>
+  <div class="container hero-content">
+    <h1>Moda Fitness Feminina</h1>
+    <p>Estilo, conforto e performance para o seu dia a dia.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#produtos">Ver Produtos</a>
+      <a class="btn btn-outline" href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20na%20ZELYRA" target="_blank" rel="noopener">Comprar agora</a>
     </div>
-  </header>
-
-  <!-- HERO claro com fallback -->
-  <section class="hero">
-    <div class="hero-bg">
-      <img id="heroImg" src="img/hero.jpg" alt="Zelyra — estilo e performance" />
-      <div class="overlay"></div>
+    <div class="trust">
+      <span>✓ Envio imediato</span>
+      <span>✓ Compra segura</span>
+      <span>✓ Suporte no WhatsApp</span>
     </div>
-    <div class="container hero-content">
-      <span class="tagline">Nova coleção • Envio imediato</span>
-      <h1>Moda Fitness Feminina</h1>
-      <p>Estilo, conforto e performance para o seu dia a dia.</p>
-      <div class="cta">
-        <a class="btn" href="#produtos">Ver Produtos</a>
-        <a class="btn ghost" href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20ZELYRA%20agora.">Comprar agora</a>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Produtos -->
-  <section id="produtos" class="section">
-    <div class="container">
-      <h2>Nossos Produtos</h2>
-      <div class="grid-produtos">
-
-        <!-- Card 1 — Macaquinho Preto -->
-        <article class="card">
-          <div class="badge">Destaque</div>
-          <img id="imgMacaquinho" src="img/macaquinho-preto.jpg" alt="Macaquinho Fitness Zelyra Preto" />
-          <div class="info">
-            <h3>Macaquinho Fitness Premium</h3>
-            <p>Caimento perfeito e tecido confortável para treinos intensos.</p>
-            <ul class="bullets">
-              <li>Tecido compressivo</li>
-              <li>Modelagem que valoriza</li>
-              <li>Logo ZELYRA dourado</li>
-            </ul>
-            <div class="preco">
-              <span class="de">R$ 149,90</span>
-              <span class="por">R$ <strong>99,90</strong></span>
-            </div>
-            <a class="btn" href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20o%20Macaquinho%20Preto%20ZELYRA.">Comprar no WhatsApp</a>
-          </div>
-        </article>
-
-        <!-- Card 2 — Conjunto Rosa -->
-        <article class="card">
-          <img id="imgConjunto" src="img/conjunto-rosa.jpg" alt="Conjunto Zelyra Rosa (top + short)" />
-          <div class="info">
-            <h3>Conjunto Zelyra Rosa</h3>
-            <p>Design moderno, modelagem premium e conforto absoluto.</p>
-            <ul class="bullets">
-              <li>Respirável e macio</li>
-              <li>Secagem rápida</li>
-              <li>Ideal para treinos intensos</li>
-            </ul>
-            <div class="preco">
-              <span class="de">R$ 159,90</span>
-              <span class="por">R$ <strong>119,90</strong></span>
-            </div>
-            <a class="btn" href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20o%20Conjunto%20Rosa%20ZELYRA.">Comprar no WhatsApp</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefícios -->
-  <section id="beneficios" class="section alt">
-    <div class="container">
-      <h2>Por que ZELYRA?</h2>
-      <div class="beneficios">
-        <div class="b">
-          <h4>Envio imediato</h4>
-          <p>Postagem no mesmo dia para pedidos confirmados até as 14h.</p>
+<section id="produtos" class="section">
+  <div class="container">
+    <h2>Nossos Produtos</h2>
+    <div class="grid">
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="tag">Destaque</div>
+        <img loading="lazy" src="img/macaquinho.jpg" alt="Macaquinho Fitness ZELYRA" />
+        <h3>Macaquinho Fitness Premium</h3>
+        <p class="desc">Cintura alta, tecido respirável e caimento perfeito.</p>
+        <ul class="bullets">
+          <li>Compressão e conforto</li>
+          <li>Logo ZELYRA dourado</li>
+          <li>Modelagem que valoriza</li>
+        </ul>
+        <div class="price">
+          <span class="from">R$ 149,90</span>
+          <span class="to">R$ 99,90</span>
         </div>
-        <div class="b">
-          <h4>Troca fácil</h4>
-          <p>Primeira troca grátis em até 7 dias após o recebimento.</p>
+        <a class="btn wpp" target="_blank"
+           href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20o%20Macaquinho%20Fitness%20Premium%20da%20ZELYRA.">
+           Comprar no WhatsApp
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <img loading="lazy" src="img/conjunto-rosa.jpg" alt="Conjunto Rosa ZELYRA" />
+        <h3>Conjunto Rosa (Top + Short)</h3>
+        <p class="desc">Estilo premium para treino e lifestyle.</p>
+        <ul class="bullets">
+          <li>Secagem rápida</li>
+          <li>Tecido macio e respirável</li>
+          <li>Acabamento premium</li>
+        </ul>
+        <div class="price">
+          <span class="to">R$ 119,90</span>
         </div>
-        <div class="b">
-          <h4>Pagamento seguro</h4>
-          <p>Pix e cartão com confirmação instantânea.</p>
+        <a class="btn wpp" target="_blank"
+           href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20o%20Conjunto%20Rosa%20(Top%20+%20Short)%20da%20ZELYRA.">
+           Comprar no WhatsApp
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <img loading="lazy" src="img/regata-bermuda.jpg" alt="Conjunto Regata + Bermuda ZELYRA" />
+        <h3>Conjunto Regata Rosa + Bermuda Preta</h3>
+        <p class="desc">Praticidade, conforto e estilo premium.</p>
+        <ul class="bullets">
+          <li>Ideal para treinos intensos</li>
+          <li>Leve e respirável</li>
+          <li>Modelagem moderna</li>
+        </ul>
+        <div class="price">
+          <span class="to">R$ 89,90</span>
         </div>
+        <a class="btn wpp" target="_blank"
+           href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20o%20Conjunto%20Regata%20Rosa%20+%20Bermuda%20Preta%20da%20ZELYRA.">
+           Comprar no WhatsApp
+        </a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <img loading="lazy" src="img/top-ziper.jpg" alt="Top Zíper Rosa ZELYRA" />
+        <h3>Top Zíper Rosa</h3>
+        <p class="desc">Design moderno e toque macio.</p>
+        <ul class="bullets">
+          <li>Respirável e confortável</li>
+          <li>Alta durabilidade</li>
+          <li>Acabamento premium</li>
+        </ul>
+        <div class="price">
+          <span class="to">R$ 79,90</span>
+        </div>
+        <a class="btn wpp" target="_blank"
+           href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20o%20Top%20Zíper%20Rosa%20da%20ZELYRA.">
+           Comprar no WhatsApp
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="beneficios" class="section alt">
+  <div class="container">
+    <h2>Por que escolher a ZELYRA?</h2>
+    <div class="features">
+      <div class="feature">
+        <h4>Conforto Premium</h4>
+        <p>Tecido leve, respirável e macio com modelagem que valoriza.</p>
+      </div>
+      <div class="feature">
+        <h4>Performance</h4>
+        <p>Peças que acompanham seus treinos, com secagem rápida e compressão.</p>
+      </div>
+      <div class="feature">
+        <h4>Envio Imediato</h4>
+        <p>Despacho rápido para todo o Brasil e atendimento via WhatsApp.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Sobre -->
-  <section id="sobre" class="section">
-    <div class="container">
-      <div class="sobre-grid">
-        <div>
-          <h2>Sobre a ZELYRA</h2>
-          <p>
-            A Zelyra nasceu para elevar sua performance e autoestima. Nossa coleção combina tecnologia têxtil com design pensado para o corpo feminino — peças que abraçam sem apertar, valorizam sem marcar e te acompanham do treino ao dia a dia.
-          </p>
-          <p><strong>Qualidade, conforto e estilo na mesma medida.</strong></p>
-          <a class="btn" href="https://wa.me/5547997695133?text=Olá!%20Quero%20tirar%20uma%20dúvida%20sobre%20os%20produtos%20ZELYRA.">Falar no WhatsApp</a>
-        </div>
-        <div class="sobre-box">
-          <p class="kpi">+500</p>
-          <span>pedidos enviados</span>
-          <p class="kpi">4,9/5</p>
-          <span>avaliações</span>
-        </div>
-      </div>
+<section id="sobre" class="section">
+  <div class="container">
+    <h2>Sobre a ZELYRA</h2>
+    <p>A Zelyra nasceu para elevar sua performance e autoestima. Coleção pensada para o corpo feminino com qualidade premium, conforto e estilo.</p>
+  </div>
+</section>
+
+<section id="faq" class="section alt">
+  <div class="container">
+    <h2>FAQ</h2>
+    <details>
+      <summary>Como funcionam tamanhos e modelagem?</summary>
+      <p>Modelagem premium com compressão confortável. Consulte o atendimento no WhatsApp para tirar dúvidas de medidas.</p>
+    </details>
+    <details>
+      <summary>Qual o prazo de envio?</summary>
+      <p>Envio imediato após confirmação do pedido. Prazo de entrega conforme a transportadora para sua região.</p>
+    </details>
+    <details>
+      <summary>Posso trocar?</summary>
+      <p>Sim, trocas em até 7 dias úteis após o recebimento. Fale conosco via WhatsApp.</p>
+    </details>
+  </div>
+</section>
+
+<footer id="contato" class="site-footer">
+  <div class="container footer-wrap">
+    <div class="col">
+      <h4>ZELYRA</h4>
+      <p>Moda Fitness Feminina Premium • Envio para todo o Brasil.</p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/5547997695133" target="_blank"> (47) 99769-5133</a></p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/zelyra.oficial" target="_blank">@zelyra.oficial</a></p>
     </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p>© 2025 ZELYRA — Todos os direitos reservados.</p>
-      <p><a href="https://www.instagram.com/zelyra.oficial" target="_blank">Instagram</a> · <a href="https://wa.me/5547997695133" target="_blank">WhatsApp</a></p>
+    <div class="col small">
+      <p>© 2025 ZELYRA. Todos os direitos reservados.</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- FALLBACK de imagens caso a pasta /img ainda não tenha sido criada -->
-  <script>
-    const fallback = {
-      hero: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1400&auto=format&fit=crop',
-      macaquinho: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop',
-      conjunto: 'https://images.unsplash.com/photo-1526401485004-2fda9f4d2753?q=80&w=1200&auto=format&fit=crop'
-    };
+<a href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20na%20ZELYRA"
+   class="fab-wpp" target="_blank" aria-label="WhatsApp">
+  💬
+</a>
 
-    document.getElementById('heroImg').addEventListener('error', e=>{
-      e.target.src = fallback.hero;
-    });
-    document.getElementById('imgMacaquinho').addEventListener('error', e=>{
-      e.target.src = fallback.macaquinho;
-    });
-    document.getElementById('imgConjunto').addEventListener('error', e=>{
-      e.target.src = fallback.conjunto;
-    });
-  </script>
 </body>
 </html>
