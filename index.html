@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZELYRA — Moda Fitness Premium</title>
+  <meta name="description" content="Moda Fitness Premium — Envio imediato, compra segura e parcelamento.">
+  <link rel="icon" href="/zelyra-logo.png">
+  <link rel="stylesheet" href="/estilo.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <img src="/zelyra-logo.png" alt="ZELYRA" class="logo">
+        <span>ZELYRA</span>
+      </div>
+
+      <nav class="menu">
+        <a href="#produtos">Produtos</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <button id="openCart" class="btn-cart" aria-label="Abrir carrinho">
+        🛒 <span id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="container hero-content">
+      <h1>Moda Fitness Feminina</h1>
+      <p>Estilo, conforto e performance premium — com envio imediato para todo o Brasil.</p>
+      <div class="cta">
+        <a class="btn-primary" href="#produtos">Ver Produtos</a>
+        <a class="btn-outline" href="#contato">Comprar agora</a>
+      </div>
+      <ul class="trust">
+        <li>✓ Envio imediato</li>
+        <li>✓ Compra segura (Mercado Pago)</li>
+        <li>✓ Pix, Débito e Crédito</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="produtos" class="section">
+    <div class="container">
+      <h2>Nossos Produtos</h2>
+      <div id="gridProdutos" class="grid"></div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section id="beneficios" class="section section-alt">
+    <div class="container">
+      <h2>Por que escolher a ZELYRA</h2>
+      <ul class="bullets">
+        <li>💎 Tecnologia premium que modela sem marcar</li>
+        <li>🌬️ Tecido respirável, secagem rápida e conforto absoluto</li>
+        <li>✨ Acabamento com logo ZELYRA em dourado</li>
+        <li>🚚 Envio imediato para todo o Brasil</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <h2>Sobre a ZELYRA</h2>
+      <p>A ZELYRA nasceu para elevar a sua performance com estilo. Peças premium que abraçam o seu corpo, valorizam a silhueta e te acompanham do treino ao dia a dia.</p>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section section-alt">
+    <div class="container">
+      <h2>Fale com a gente</h2>
+      <p>Atendimento rápido via WhatsApp e redes sociais.</p>
+      <div class="contact-actions">
+        <a class="btn-primary" target="_blank" href="https://wa.me/5547997695133">WhatsApp</a>
+        <a class="btn-outline" target="_blank" href="https://instagram.com/zelyra.oficial">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© ZELYRA — Moda Fitness Premium — Envio imediato | Compra segura</p>
+    </div>
+  </footer>
+
+  <!-- CARRINHO -->
+  <aside id="cart" class="cart">
+    <div class="cart-head">
+      <h3>Seu carrinho</h3>
+      <button id="closeCart" class="close">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-bottom">
+      <div class="cart-line">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">R$ 0,00</span>
+      </div>
+
+      <div class="cart-line">
+        <label for="cupom">Cupom</label>
+        <input id="cupom" type="text" placeholder="ZELYRA10">
+        <button id="aplicarCupom" class="btn-sm">Aplicar</button>
+      </div>
+
+      <div class="cart-line">
+        <span>Frete</span>
+        <span id="cartFrete">R$ 0,00</span>
+      </div>
+
+      <div class="cart-total">
+        <strong>Total</strong>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+
+      <button id="btnCheckout" class="btn-primary w-100">Finalizar compra</button>
+      <p class="mp-note">Pagamento via Mercado Pago • Pix • Cartão • Débito</p>
+    </div>
+  </aside>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
