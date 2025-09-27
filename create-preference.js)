@@ -1,0 +1,61 @@
+// /API/create-preference.js
+import fetch from 'node-fetch';
+
+export default async function handler(req, res){
+  if(req.method !== 'POST'){
+    return res.status(405).json({error: 'Method not allowed'});
+  }
+
+  try{
+    const { items = [] } = req.body || {};
+    if(!items.length){
+      return res.status(400).json({error: 'No items'});
+    }
+
+    // Seu token privado do Mercado Pago como variável do Vercel:
+    const ACCESS_TOKEN = process.env.MP_ACCESS_TOKEN;
+    if(!ACCESS_TOKEN){
+      return res.status(500).json({error:'MP_ACCESS_TOKEN não configurado'});
+    }
+
+    // Cria preference (Checkout Pro)
+    const payload = {
+      items: items.map(i => ({
+        title: i.title,
+        quantity: Number(i.quantity || 1),
+        currency_id: "BRL",
+        unit_price: Number(i.unit_price),
+        picture_url: i.picture_url || undefined
+      })),
+      back_urls: {
+        success: `${req.headers.origin || 'https://zelyra-site.vercel.app'}/?status=success`,
+        failure: `${req.headers.origin || 'https://zelyra-site.vercel.app'}/?status=failure`,
+        pending: `${req.headers.origin || 'https://zelyra-site.vercel.app'}/?status=pending`
+      },
+      auto_return: "approved",
+      payment_methods: {
+        installments: 12, // até 12x
+        default_payment_method_id: null
+      }
+    };
+
+    const mpRes = await fetch('https://api.mercadopago.com/checkout/preferences', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${ACCESS_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await mpRes.json();
+    if(data.init_point){
+      return res.status(200).json({ init_point: data.init_point, id: data.id });
+    }
+    return res.status(500).json({error:'Erro ao criar preferência', details: data});
+
+  }catch(e){
+    console.error(e);
+    return res.status(500).json({error: 'server_error', details: String(e)});
+  }
+}
