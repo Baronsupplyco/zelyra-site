@@ -1,154 +1,118 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZELYRA — Moda Fitness Feminina</title>
-  <meta name="description" content="ZELYRA — Moda fitness premium com estilo, conforto e performance. Top Fitness, Macaquinho, Legging e Conjuntos. Envio rápido.">
-  <meta property="og:title" content="ZELYRA — Moda Fitness Feminina">
-  <meta property="og:description" content="Coleção Premium: Top Fitness, Macaquinho e Conjuntos.">
-  <meta property="og:type" content="website">
-
-  <link rel="icon" href="zelyra-logo.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZELYRA • Moda Fitness Feminina</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <div class="container nav">
-      <a href="#" class="brand">
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
         <img src="zelyra-logo.png" alt="Zelyra" class="logo">
-        <span>ZELYRA <b>★</b></span>
-      </a>
+        <span>ZELYRA</span>
+      </div>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="menu" id="menu">
+      <nav class="nav">
         <a href="#produtos">Produtos</a>
         <a href="#beneficios">Benefícios</a>
         <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
       </nav>
+
+      <button class="btn cart-open" id="openCart">Carrinho <span id="cartCount">0</span></button>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="overlay"></div>
+    <div class="hero-overlay"></div>
     <div class="container hero-content">
       <h1>Moda Fitness Feminina</h1>
       <p>Estilo, conforto e performance para o seu dia a dia.</p>
-
-      <div class="cta">
-        <a href="#produtos" class="btn btn-yellow">Ver Produtos</a>
-        <a href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20ZELYRA" target="_blank" class="btn btn-outline">Comprar agora</a>
+      <div class="actions">
+        <a href="#produtos" class="btn btn-primary">Ver Produtos</a>
+        <a href="#produtos" class="btn btn-outline">Comprar agora</a>
       </div>
     </div>
-    <!-- Se quiser imagem de fundo, coloque 'img/hero.jpg' -->
   </section>
 
-  <!-- Produtos -->
-  <section class="produtos" id="produtos">
+  <section id="produtos" class="produtos container">
+    <h2>Nossos Produtos</h2>
+    <div id="produtosGrid" class="grid"></div>
+  </section>
+
+  <section id="beneficios" class="beneficios">
     <div class="container">
-      <h2>Nossos Produtos</h2>
-
-      <div class="grid">
-        <!-- Card 1 Top Fitness Rosa -->
-        <article class="card">
-          <div class="tag">Destaque</div>
-          <img src="img/top-fitness.jpg" alt="Top Fitness Zelyra Rosa" class="card-img">
-          <div class="card-body">
-            <h3>Top Fitness</h3>
-            <p>Tecido de alta compressão, secagem rápida e toque macio. Ideal para treinos intensos.</p>
-            <div class="price">
-              <span class="from">de R$ 109,90</span>
-              <span class="to">R$ 89,90</span>
-            </div>
-            <div class="actions">
-              <a class="btn btn-yellow" href="https://wa.me/5547997695133?text=Quero%20o%20Top%20Fitness%20Zelyra" target="_blank">Comprar no WhatsApp</a>
-              <a class="btn btn-link" href="#detalhes-top">Ver detalhes</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2 Macaquinho Preto -->
-        <article class="card">
-          <img src="img/macaquinho-preto.jpg" alt="Macaquinho Zelyra Preto" class="card-img">
-          <div class="card-body">
-            <h3>Macaquinho Zelyra</h3>
-            <p>Design anatômico com alças finas, compressão média e logo dourado. Conforto premium para treino e lifestyle.</p>
-            <div class="price">
-              <span class="from">de R$ 159,90</span>
-              <span class="to">R$ 129,90</span>
-            </div>
-            <div class="actions">
-              <a class="btn btn-yellow" href="https://wa.me/5547997695133?text=Quero%20o%20Macaquinho%20Zelyra" target="_blank">Comprar no WhatsApp</a>
-              <a class="btn btn-link" href="#detalhes-mac">Ver detalhes</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefícios -->
-  <section class="beneficios" id="beneficios">
-    <div class="container">
-      <h2>Por que ZELYRA?</h2>
-      <div class="grid-3">
-        <div class="benefit">
-          <h4>Performance & Conforto</h4>
-          <p>Tecidos com compressão e respirabilidade, pensados para rendimento e bem-estar.</p>
+      <h2>Benefícios ZELYRA</h2>
+      <div class="beneficios-grid">
+        <div class="card">
+          <h3>Performance</h3>
+          <p>Modelagem premium, tecidos respiráveis e compressão ideal.</p>
         </div>
-        <div class="benefit">
-          <h4>Modelagem Premium</h4>
-          <p>Peças que valorizam o corpo feminino sem marcar, com caimento perfeito.</p>
+        <div class="card">
+          <h3>Conforto</h3>
+          <p>Toque macio e ajuste perfeito para treinos e lifestyle.</p>
         </div>
-        <div class="benefit">
-          <h4>Qualidade que Dura</h4>
-          <p>Feitas para o treino e para viver — resistentes e com acabamento superior.</p>
+        <div class="card">
+          <h3>Qualidade</h3>
+          <p>Acabamento de alto padrão com durabilidade e estilo.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sobre -->
-  <section class="sobre" id="sobre">
+  <section id="sobre" class="sobre">
     <div class="container">
       <h2>Sobre a ZELYRA</h2>
-      <p>A Zelyra nasceu para elevar a sua performance e autoestima. Nossa coleção combina tecnologia têxtil com um design pensado para o corpo feminino — peças que abraçam sem apertar, valorizam sem marcar e te acompanham do treino ao dia a dia.</p>
-    </div>
-  </section>
+      <p>A Zelyra nasceu para elevar a sua performance e autoestima. Nossa coleção combina tecnologia têxtil com design pensado para o corpo feminino — peças que abraçam sem apertar, valorizam sem marcar e te acompanham do treino ao dia a dia.</p>
 
-  <!-- Contato -->
-  <section class="contato" id="contato">
-    <div class="container">
-      <h2>Fale com a gente</h2>
-      <div class="contact-grid">
-        <a class="btn btn-yellow" target="_blank" href="https://wa.me/5547997695133">WhatsApp (47) 99769-5133</a>
-        <a class="btn btn-outline" target="_blank" href="https://www.instagram.com/zelyra.oficial/">Instagram @zelyra.oficial</a>
-        <a class="btn btn-link" target="_blank" href="mailto:contato@zelyrastore.com.br">contato@zelyrastore.com.br</a>
+      <div class="socials">
+        <a target="_blank" href="https://instagram.com/zelyra.oficial" class="btn btn-light">Instagram</a>
+        <a target="_blank" href="https://wa.me/5547997695133" class="btn btn-light">WhatsApp</a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 ZELYRA — Moda Fitness Feminina Premium.</p>
+      <p>© 2025 ZELYRA — Todos os direitos reservados.</p>
+      <a href="#topo">Voltar ao topo ↑</a>
     </div>
   </footer>
 
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/5547997695133?text=Olá!%20Quero%20comprar%20ZELYRA" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
-  </a>
+  <!-- Carrinho -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Seu Carrinho</h3>
+      <button id="closeCart" class="btn btn-close">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
 
-  <script src="main.js"></script>
+    <div class="cart-footer">
+      <div class="frete">
+        <label for="frete">Frete:</label>
+        <select id="frete">
+          <option value="0">Retirar na loja (R$ 0,00)</option>
+          <option value="14.90">PAC (R$ 14,90)</option>
+          <option value="24.90">Sedex (R$ 24,90)</option>
+        </select>
+      </div>
+      <div class="total">
+        <span>Total:</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button id="checkout" class="btn btn-primary full">Finalizar Compra</button>
+      <small class="info">
+        Pagamento via Mercado Pago (Pix, cartão, boleto). Seguro e rápido.
+      </small>
+    </div>
+  </div>
+
+  <div id="cartBackdrop" class="backdrop"></div>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
