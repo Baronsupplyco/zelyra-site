@@ -1,104 +1,111 @@
 :root{
   --bg:#101014;
-  --bg2:#0c0c0f;
-  --text:#F9FAFB;
-  --muted:#D8DBE3;
-  --brand:#ff4fa3;       /* rosa principal */
-  --brand-2:#ffb37a;     /* pêssego */
-  --card:#16171d;
-  --white:#fff;
+  --text:#1a1b1f;
+  --text-contrast:#F9FAFB;
+  --muted:#646b7a;
+  --brand:#ff4fa3;      /* rosa */
+  --brand-2:#ffb37a;    /* pêssego */
+  --surface:#ffffff;
+  --surface-2:#f6f7fb;
+  --line:#eceef3;
+  --dark:#0d0e12;
 }
 
+/* RESET */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
   font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
   color:var(--text);
-  background:linear-gradient(180deg,#0f0f12 0%, #111218 100%);
+  background:var(--surface-2);
 }
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:30;background:#0b0b0e;border-bottom:1px solid #1c1d23}
+.nav{position:sticky;top:0;z-index:20;background:#ffffffcc;backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
 .nav .container{max-width:1100px;margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;gap:10px;align-items:center}
 .brand img{width:28px;height:28px;border-radius:6px}
-.brand span{font-weight:700;letter-spacing:.08em}
+.brand span{font-weight:800;letter-spacing:.06em}
 .nav nav{display:flex;gap:18px;align-items:center}
-.nav a{color:#dfe2ea;text-decoration:none;font-weight:500}
-.nav .btn-outline{border:1px solid #2b2c33;border-radius:10px;padding:8px 14px}
-.nav .btn-outline:hover{border-color:#3b3d47}
+.nav a{color:#1a1b1f;text-decoration:none;font-weight:600}
+.nav .btn-outline{border:1px solid #dfe2ea;border-radius:12px;padding:8px 14px}
+.nav .btn-outline:hover{background:#f5f6fa}
 
 /* HERO */
 .hero{position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0}
-.hero-bg img{
-  width:100%;height:100%;object-fit:cover;filter:saturate(1.05) brightness(.85);
-}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) brightness(.98)}
 .hero-bg .overlay{
   position:absolute;inset:0;
-  background:linear-gradient(90deg, rgba(10,10,12,.85) 0%, rgba(10,10,12,.6) 40%, rgba(10,10,12,.25) 100%),
-             radial-gradient(1200px 500px at -10% -20%, rgba(255,79,163,.25), transparent 60%),
-             radial-gradient(1200px 500px at 110% 120%, rgba(255,179,122,.25), transparent 60%);
+  background:linear-gradient(90deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.65) 40%, rgba(255,255,255,.30) 100%),
+             radial-gradient(1000px 400px at -10% -20%, rgba(255,79,163,.18), transparent 60%),
+             radial-gradient(1000px 400px at 110% 120%, rgba(255,179,122,.18), transparent 60%);
 }
-.hero .container{position:relative;max-width:1100px;margin:0 auto;padding:120px 18px 140px}
-.hero h1{font-size:48px;line-height:1.15;margin:0 0 10px}
-.hero p{color:var(--muted);font-size:18px;margin:0 0 24px}
-.cta{display:flex;gap:14px}
+.hero .container{position:relative;max-width:1100px;margin:0 auto;padding:110px 18px 120px}
+.tagline{
+  color:#aaadb7;background:#ffffffaa;border:1px solid #e8eaf1;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.78rem
+}
+.hero h1{font-size:46px;line-height:1.15;margin:10px 0 8px}
+.hero p{color:#4d5361;font-size:18px;margin:0 0 22px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
 .btn{
   background: linear-gradient(180deg, var(--brand) 0%, #ff2f8f 100%);
-  border:none;color:var(--white);padding:14px 20px;border-radius:14px;font-weight:700;text-decoration:none;
+  border:none;color:var(--text-contrast);padding:14px 20px;border-radius:14px;font-weight:800;text-decoration:none;
   box-shadow:0 10px 28px rgba(255,79,163,.25);
 }
 .btn:hover{filter:brightness(1.05)}
 .btn.ghost{
-  background:transparent;color:#e7e7ee;border:1px solid #393a43;box-shadow:none
+  background:#fff;color:#1a1b1f;border:1px solid #e1e3eb;box-shadow:none
 }
 
 /* SECTION */
-.section{padding:72px 0}
-.section.alt{background:linear-gradient(180deg,#111218 0%, #0f0f12 100%)}
+.section{padding:68px 0}
+.section.alt{background:#fff}
 .container{max-width:1100px;margin:0 auto;padding:0 18px}
 h2{font-size:34px;margin:0 0 22px}
 
 /* PRODUTOS */
 .grid-produtos{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px
 }
 .card{
-  background:linear-gradient(180deg,#15161c 0%, #13141a 100%);
-  border:1px solid #262730;border-radius:18px;overflow:hidden;position:relative
+  background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative
 }
 .card .badge{
-  position:absolute;left:14px;top:14px;background:var(--brand);
-  color:#111;border-radius:999px;padding:6px 10px;font-weight:700;font-size:.8rem
+  position:absolute;left:12px;top:12px;background:var(--brand);
+  color:#fff;border-radius:999px;padding:6px 10px;font-weight:800;font-size:.8rem;
+  box-shadow:0 10px 20px rgba(255,79,163,.28)
 }
-.card img{width:100%;height:420px;object-fit:cover}
+.card img{width:100%;height:430px;object-fit:cover}
 .card .info{padding:16px}
 .card h3{margin:4px 0 6px;font-size:20px}
-.card p{margin:0 0 12px;color:#cfd3de;font-weight:400}
+.card p{margin:0 0 8px;color:#4a5060}
+.bullets{margin:0 0 10px 18px;color:#586074}
+.bullets li{margin:2px 0}
 .preco{display:flex;gap:10px;align-items:center;margin-bottom:12px}
-.preco .de{color:#a0a6b4;text-decoration:line-through}
-.preco .por{color:#fff}
+.preco .de{color:#9aa1b1;text-decoration:line-through}
+.preco .por{color:#111}
 .card .btn{display:inline-block}
 
 /* BENEFÍCIOS */
+.section.alt h2{color:#1a1b1f}
 .beneficios{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.b{border:1px solid #25262f;background:#14151b;border-radius:16px;padding:18px}
-.b h4{margin:0 0 8px}
+.b{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px}
+.b h4{margin:0 0 8px;color:#111}
 
 /* SOBRE */
 .sobre-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
-.sobre-box{border:1px solid #2a2b35;background:#15161d;border-radius:18px;padding:18px;text-align:center}
+.sobre-box{border:1px solid var(--line);background:#fff;border-radius:18px;padding:18px;text-align:center}
 .kpi{font-size:42px;font-weight:800;margin:0}
 
 /* FOOTER */
-.footer{border-top:1px solid #1e1f27;background:#0b0c10}
-.footer .container{padding:30px 18px;display:flex;justify-content:space-between;align-items:center}
-.footer a{color:#e6e7ef;text-decoration:none}
+.footer{border-top:1px solid var(--line);background:#fff}
+.footer .container{padding:26px 18px;display:flex;justify-content:space-between;align-items:center}
+.footer a{color:#111;text-decoration:none}
 
 /* RESPONSIVO */
 @media (max-width: 900px){
-  .hero h1{font-size:36px}
+  .hero h1{font-size:34px}
   .grid-produtos{grid-template-columns:1fr}
   .beneficios{grid-template-columns:1fr}
   .sobre-grid{grid-template-columns:1fr}
