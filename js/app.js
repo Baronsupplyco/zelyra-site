@@ -1,146 +1,110 @@
-const grid = document.getElementById('produtosGrid');
-const cartSidebar = document.getElementById('cartSidebar');
-const backdrop = document.getElementById('cartBackdrop');
-const openCartBtn = document.getElementById('openCart');
-const closeCartBtn = document.getElementById('closeCart');
-const cartItemsEl = document.getElementById('cartItems');
-const cartTotalEl = document.getElementById('cartTotal');
-const cartCountEl = document.getElementById('cartCount');
-const freteEl = document.getElementById('frete');
-const checkoutBtn = document.getElementById('checkout');
+const gridProdutos = document.getElementById('grid-produtos');
+const cartBtn = document.getElementById('cartBtn');
+const cartDrawer = document.getElementById('cartDrawer');
+const closeCart = document.getElementById('closeCart');
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+const cartCount = document.getElementById('cart-count');
+const finalizarCompra = document.getElementById('finalizarCompra');
+const checkoutCartBtn = document.getElementById('checkoutCartBtn');
 
-let cart = JSON.parse(localStorage.getItem('zelyra_cart') || '[]');
 let produtos = [];
+let carrinho = JSON.parse(localStorage.getItem('carrinho-zelyra') || '[]');
 
-function currency(v){ return v.toLocaleString('pt-BR',{style:'currency', currency:'BRL'}); }
-function saveCart(){ localStorage.setItem('zelyra_cart', JSON.stringify(cart)); }
+function salvarCarrinho(){ localStorage.setItem('carrinho-zelyra', JSON.stringify(carrinho)); }
+function moeda(v){ return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}); }
 
-async function loadProdutos(){
-  const res = await fetch('data/produtos.json');
+async function carregarProdutos(){
+  const res = await fetch('dados/produtos.json');
   produtos = await res.json();
   renderProdutos();
-  renderCart();
+  atualizarCartUI();
 }
 
 function renderProdutos(){
-  grid.innerHTML = '';
-  produtos.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'card-produto';
-    card.innerHTML = `
+  gridProdutos.innerHTML = produtos.map(p => `
+    <div class="card">
       <img src="${p.img}" alt="${p.nome}">
-      <div class="card-body">
-        ${p.destaque ? '<span class="badge">Destaque</span>' : ''}
-        <div class="card-title">${p.nome}</div>
-        <div class="price">${currency(p.preco)}</div>
-        <button class="btn btn-primary btn-add" data-id="${p.id}">Adicionar</button>
-      </div>`;
-    grid.appendChild(card);
-  });
-
-  grid.querySelectorAll('.btn-add').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const id = btn.dataset.id;
-      addToCart(id);
-    });
-  });
-}
-
-function addToCart(id){
-  const prod = produtos.find(p => p.id === id);
-  const item = cart.find(i => i.id === id);
-  if(item) item.qtd++;
-  else cart.push({id:prod.id, nome:prod.nome, preco:prod.preco, img:prod.img, qtd:1});
-  saveCart();
-  renderCart();
-  openCart();
-}
-
-function removeFromCart(id){
-  cart = cart.filter(i => i.id !== id);
-  saveCart();
-  renderCart();
-}
-
-function changeQtd(id, delta){
-  const item = cart.find(i => i.id === id);
-  if(!item) return;
-  item.qtd += delta;
-  if(item.qtd <= 0) removeFromCart(id);
-  saveCart();
-  renderCart();
-}
-
-function cartTotal(){
-  let total = cart.reduce((acc,i)=>acc+(i.preco*i.qtd), 0);
-  total += parseFloat(freteEl.value || 0);
-  return total;
-}
-
-function renderCart(){
-  cartItemsEl.innerHTML = '';
-  cart.forEach(i=>{
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML=`
-      <img src="${i.img}" alt="${i.nome}">
-      <div>
-        <h4>${i.nome}</h4>
-        <div>${currency(i.preco)} • <small>x${i.qtd}</small></div>
-        <div class="qtd">
-          <button onclick="changeQtd('${i.id}',-1)">–</button>
-          <span>${i.qtd}</span>
-          <button onclick="changeQtd('${i.id}',+1)">+</button>
-          <button style="margin-left:8px" onclick="removeFromCart('${i.id}')">Remover</button>
+      <div class="card__info">
+        <h3>${p.nome} ${p.tag ? `<span class="tag">${p.tag}</span>` : ''}</h3>
+        <p>${p.descricao}</p>
+        <div class="card__preco">${moeda(p.preco)}</div>
+        <div class="card__gridbtn">
+          <button class="btn btn--rosa" onclick="adicionar('${p.id}')">Adicionar</button>
+          <button class="btn btn--borda" onclick="comprarAgora('${p.id}')">Comprar</button>
         </div>
       </div>
-      <div style="text-align:right">${currency(i.preco*i.qtd)}</div>
-    `;
-    cartItemsEl.appendChild(div);
-  });
-  cartTotalEl.textContent = currency(cartTotal());
-  cartCountEl.textContent = cart.reduce((acc,i)=>acc+i.qtd,0);
+    </div>
+  `).join('');
 }
-window.changeQtd = changeQtd;
-window.removeFromCart = removeFromCart;
 
-function openCart(){ cartSidebar.classList.add('open'); backdrop.classList.add('show'); }
-function closeCart(){ cartSidebar.classList.remove('open'); backdrop.classList.remove('show'); }
+function adicionar(id){
+  const p = produtos.find(x => x.id === id);
+  const existe = carrinho.find(x => x.id === id);
+  if(existe) existe.qtd += 1;
+  else carrinho.push({...p, qtd:1});
+  salvarCarrinho();
+  atualizarCartUI();
+  abrirCarrinho();
+}
+function remover(id){ carrinho = carrinho.filter(it => it.id !== id); salvarCarrinho(); atualizarCartUI(); }
+function alterarQtd(id, delta){
+  const item = carrinho.find(x=>x.id===id);
+  if(!item) return;
+  item.qtd += delta;
+  if(item.qtd<=0) remover(id);
+  salvarCarrinho(); atualizarCartUI();
+}
+function totalCarrinho(){ return carrinho.reduce((s,it)=> s + (it.preco*it.qtd), 0); }
+function atualizarCartUI(){
+  cartItems.innerHTML = carrinho.length ? carrinho.map(it => `
+    <div class="cart-item">
+      <img src="${it.img}">
+      <div style="flex:1">
+        <h4>${it.nome}</h4>
+        <div>${moeda(it.preco)} — Qtd: ${it.qtd}</div>
+        <div style="margin-top:.3rem">
+          <button class="btn btn--borda" onclick="alterarQtd('${it.id}', -1)">-</button>
+          <button class="btn btn--rosa" style="margin-left:.3rem" onclick="alterarQtd('${it.id}', 1)">+</button>
+          <button class="btn btn--borda" style="margin-left:.3rem" onclick="remover('${it.id}')">Remover</button>
+        </div>
+      </div>
+    </div>
+  `).join('') : '<p>Seu carrinho está vazio.</p>';
+  cartTotal.textContent = moeda(totalCarrinho());
+  cartCount.textContent = carrinho.reduce((s,it)=>s+it.qtd,0);
+}
+function abrirCarrinho(){ cartDrawer.classList.add('aberto'); }
+function fecharCarrinho(){ cartDrawer.classList.remove('aberto'); }
+cartBtn.addEventListener('click', abrirCarrinho);
+closeCart.addEventListener('click', fecharCarrinho);
+checkoutCartBtn.addEventListener('click', abrirCarrinho);
 
-openCartBtn.addEventListener('click', openCart);
-closeCartBtn.addEventListener('click', closeCart);
-backdrop.addEventListener('click', closeCart);
-freteEl.addEventListener('change', renderCart);
+async function criarPreferencia(itens){
+  const resp = await fetch('/api/criar-preferencia', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({items: itens})
+  });
+  if(!resp.ok) throw new Error('Erro ao criar preferência');
+  return await resp.json(); // { init_point }
+}
 
-checkoutBtn.addEventListener('click', async ()=>{
-  if(cart.length===0){ alert('Seu carrinho está vazio.'); return; }
-  checkoutBtn.disabled = true;
-  checkoutBtn.textContent = 'Redirecionando…';
+async function finalizar(){
+  if(!carrinho.length) { alert('Seu carrinho está vazio.'); return; }
+  const itens = carrinho.map(it => ({
+    title: it.nome, quantity: it.qtd, currency_id: 'BRL', unit_price: Number(it.preco.toFixed(2))
+  }));
+  try{ const pref = await criarPreferencia(itens); window.location.href = pref.init_point; }
+  catch(e){ alert('Erro ao iniciar checkout. Tente novamente.'); console.error(e); }
+}
+finalizarCompra.addEventListener('click', finalizar);
 
-  const body = {
-    items: cart.map(i=>({ title:i.nome, quantity:i.qtd, unit_price:i.preco, currency_id:'BRL', picture_url:i.img })),
-    shipping_cost: parseFloat(freteEl.value||0)
-  };
-
+async function comprarAgora(id){
+  const p = produtos.find(x => x.id === id);
   try{
-    const res = await fetch('/api/checkout', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(body)
-    });
-    const data = await res.json();
-    if(data.init_point){
-      window.location.href = data.init_point; // redireciona para Mercado Pago
-    }else{
-      alert('Erro ao iniciar checkout.');
-    }
-  }catch(e){
-    console.error(e);
-    alert('Erro ao conectar ao servidor.');
-  }finally{
-    checkoutBtn.disabled = false;
-    checkoutBtn.textContent = 'Finalizar Compra';
-  }
-});
-
-loadProdutos();
+    const pref = await criarPreferencia([{ title:p.nome, quantity:1, currency_id:'BRL', unit_price:Number(p.preco.toFixed(2)) }]);
+    window.location.href = pref.init_point;
+  }catch(e){ console.error(e); alert('Erro ao iniciar checkout.'); }
+}
+carregarProdutos();
