@@ -1,105 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZELYRA • Moda Fitness Premium</title>
-  <link rel="stylesheet" href="estilo.css"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ZELYRA – Moda Fitness Premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css" />
+  <link rel="icon" type="image/png" href="imagem/zelyra-logo.png">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
-      <img src="zelyra-logo.png" alt="Zelyra" class="logo"/>
-      <span>ZELYRA</span>
+    <div class="container">
+      <div class="brand">
+        <img src="imagem/zelyra-logo.png" alt="ZELYRA" class="logo">
+        <span>ZELYRA</span>
+      </div>
+      <nav class="menu">
+        <a href="#produtos">Produtos</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button id="btn-cart" class="btn-cart">
+        🛒 <span id="cart-count">0</span>
+      </button>
     </div>
-    <nav>
-      <a href="#produtos">Produtos</a>
-      <a href="#beneficios">Benefícios</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-      <button class="btn-cart" id="btn-open-cart">🛒 Carrinho <span id="cart-count">0</span></button>
-    </nav>
   </header>
 
-  <!-- HERO Premium -->
   <section class="hero">
     <div class="overlay"></div>
-    <div class="hero-content">
+    <div class="container hero-content">
       <h1>Moda Fitness Feminina</h1>
       <p>Estilo, conforto e performance premium – com envio imediato para todo o Brasil.</p>
-      <div class="actions">
-        <a href="#produtos" class="btn btn-primary">Ver Produtos</a>
-        <a href="#contato" class="btn btn-outline">Comprar no WhatsApp</a>
+      <div class="hero-actions">
+        <a class="btn primary" href="#produtos">Ver Produtos</a>
+        <a class="btn outline" href="#produtos">Comprar agora</a>
       </div>
-      <div class="badges">
-        <span>✓ Pix, Crédito e Débito</span>
-        <span>✓ Envio imediato</span>
-        <span>✓ Compra Segura</span>
-      </div>
+      <ul class="badges">
+        <li>✓ Envio imediato</li>
+        <li>✓ Compra segura (Mercado Pago)</li>
+        <li>✓ Pix, Débito e Crédito</li>
+      </ul>
     </div>
   </section>
 
-  <!-- Produtos -->
-  <section id="produtos" class="section">
-    <h2>Nossos Produtos</h2>
-    <div class="grid" id="product-grid">
-      <!-- Os cards são gerados pelo app.js -->
-    </div>
-  </section>
+  <main class="container">
+    <section id="produtos" class="produtos">
+      <h2>Nossos Produtos</h2>
+      <div id="product-grid" class="grid"></div>
+    </section>
 
-  <!-- Benefícios -->
-  <section id="beneficios" class="section alt">
-    <h2>Por que escolher a ZELYRA</h2>
-    <ul class="benefits">
-      <li>💎 Tecnologia premium que modela sem marcar.</li>
-      <li>🧵 Tecido respirável, secagem rápida e conforto absoluto.</li>
-      <li>✨ Acabamento com logo ZELYRA dourado.</li>
-      <li>🚚 Envio imediato para todo o Brasil.</li>
-      <li>🛡️ Pagamento seguro via Mercado Pago (Pix, Cartão, Boleto).</li>
-    </ul>
-  </section>
+    <section id="beneficios" class="beneficios">
+      <h2>Por que escolher a ZELYRA</h2>
+      <ul class="benefit-list">
+        <li>💎 Tecnologia premium que modela sem marcar.</li>
+        <li>🌬️ Tecido respirável, secagem rápida e conforto absoluto.</li>
+        <li>✨ Acabamento com logo ZELYRA dourado.</li>
+        <li>🚚 Envio imediato para todo o Brasil.</li>
+      </ul>
+    </section>
 
-  <!-- Sobre -->
-  <section id="sobre" class="section">
-    <h2>Sobre a ZELYRA</h2>
-    <p>
-      A ZELYRA nasceu para elevar sua performance e autoestima. 
-      Nossa coleção combina tecnologia têxtil com design pensado para o corpo feminino — peças que abraçam sem apertar, valorizam sem marcar e te acompanham do treino ao dia a dia.
-    </p>
-  </section>
+    <section id="sobre" class="sobre">
+      <h2>Sobre a ZELYRA</h2>
+      <p>
+        A ZELYRA nasceu para elevar sua performance e autoestima. Nossa coleção combina tecnologia têxtil com design pensado para o corpo feminino — peças que valorizam sem marcar e te acompanham no treino e no dia a dia.
+      </p>
+    </section>
 
-  <!-- Contato -->
-  <section id="contato" class="section alt">
-    <h2>Fale com a gente</h2>
-    <div class="contact">
-      <a class="btn btn-primary" target="_blank" href="https://wa.me/5547997695133">WhatsApp: (47) 99769-5133</a>
-      <a class="btn btn-outline" target="_blank" href="https://instagram.com/zelyra.oficial">Instagram @zelyra.oficial</a>
-    </div>
-  </section>
-
-  <!-- Carrinho Lateral -->
-  <aside class="cart-drawer" id="cart-drawer">
-    <header>
-      <h3>Seu Carrinho</h3>
-      <button id="btn-close-cart" class="close">✕</button>
-    </header>
-    <div id="cart-items"></div>
-    <footer>
-      <div class="total">
-        <span>Total</span>
-        <strong id="cart-total">R$ 0,00</strong>
+    <section id="contato" class="contato">
+      <h2>Fale com a gente</h2>
+      <p>Atendimento rápido por WhatsApp e redes sociais.</p>
+      <div class="contact-actions">
+        <a class="btn whatsapp" target="_blank" rel="noopener" href="https://wa.me/5547997695133">WhatsApp</a>
+        <a class="btn outline" target="_blank" rel="noopener" href="https://instagram.com/zelyra.oficial">Instagram</a>
       </div>
-      <button id="btn-checkout" class="btn btn-primary">Finalizar compra</button>
-      <small>Pagamento via Mercado Pago (Pix, Crédito e Débito)</small>
-    </footer>
-  </aside>
-  <div class="backdrop" id="backdrop"></div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <p>© 2025 ZELYRA — Moda Fitness Premium • <a href="#contato">Atendimento</a></p>
+    <div class="container">
+      <p>© 2025 ZELYRA — Todos os direitos reservados.</p>
+    </div>
   </footer>
+
+  <!-- Carrinho (offcanvas) -->
+  <aside id="cart-panel" class="cart-panel">
+    <div class="cart-header">
+      <h3>Seu Carrinho</h3>
+      <button id="close-cart" class="close">×</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary">
+      <div class="row"><span>Subtotal</span><strong id="cart-subtotal">R$ 0,00</strong></div>
+      <p class="pix-note">Pagamento via Mercado Pago: Pix, débito e crédito</p>
+      <button id="checkout-btn" class="btn primary block">Finalizar compra</button>
+    </div>
+  </aside>
+
+  <!-- Overlay do carrinho -->
+  <div id="cart-overlay" class="overlay-bg"></div>
+
+  <a class="float-whats" target="_blank" href="https://wa.me/5547997695133" aria-label="WhatsApp">
+    💬
+  </a>
 
   <script src="app.js"></script>
 </body>
