@@ -1,13 +1,8 @@
 {
   "name": "zelyra-site",
   "version": "1.0.0",
-  "scripts": {
-    "start": "serve"
-  },
+  "private": true,
   "dependencies": {
-    "serve": "^14.2.0"
+    "mercadopago": "^1.6.5"
   }
 }
-
-
----
