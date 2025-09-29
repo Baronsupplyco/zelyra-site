@@ -1,137 +1,157 @@
-const state = {
-  produtos: [],
-  carrinho: JSON.parse(localStorage.getItem('carrinho_zelyra') || '[]')
-};
+// ---- Produtos da loja (você pode editar/expandir) ----
+const PRODUTOS = [
+  {
+    id: 'macaquinho-preto',
+    nome: 'Macaquinho Fitness Preto',
+    preco: 99.90,
+    descricao: 'Cintura alta, tecido de compressão e logo dourado ZELYRA.',
+    imagem: 'https://i.imgur.com/9hJkOin.jpg' // troque pela sua depois
+  },
+  {
+    id: 'conjunto-rosa',
+    nome: 'Conjunto Rosa (Top + Short)',
+    preco: 119.90,
+    descricao: 'Suporte firme, tecido respirável e caimento premium.',
+    imagem: 'https://i.imgur.com/zb3dQn5.jpg' // troque pela sua depois
+  }
+];
 
-const byId = s => document.getElementById(s);
+const $lista = document.querySelector('#lista-produtos');
+const $contador = document.querySelector('#contador-carrinho');
+const $drawer = document.querySelector('#drawer');
+const $abrir = document.querySelector('#abrir-carrinho');
+const $fechar = document.querySelector('#fechar-carrinho');
+const $itensCarrinho = document.querySelector('#itens-carrinho');
+const $totalCarrinho = document.querySelector('#total-carrinho');
+const $finalizar = document.querySelector('#finalizar-compra');
 
-function fmt(n){ return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}); }
+const CART_KEY = 'zelyra_cart_v1';
 
-function salvarCarrinho(){
-  localStorage.setItem('carrinho_zelyra', JSON.stringify(state.carrinho));
-  atualizarBadge();
-}
+function moeda(v){ return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}
 
-function atualizarBadge(){
-  byId('qtde-carrinho').textContent = state.carrinho.reduce((t,i)=>t+i.qtd,0);
-}
-
-async function carregarProdutos(){
-  const r = await fetch('dados/produtos.json');
-  state.produtos = await r.json();
-  renderProdutos();
-  atualizarBadge();
-  byId('ano').textContent = new Date().getFullYear();
-}
-
+// Renderiza cards
 function renderProdutos(){
-  const el = document.getElementById('grid-produtos');
-  el.innerHTML = '';
-  state.produtos.forEach(p=>{
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
+  $lista.innerHTML = '';
+  PRODUTOS.forEach(p=>{
+    const el = document.createElement('div');
+    el.className = 'card';
+    el.innerHTML = `
       <img src="${p.imagem}" alt="${p.nome}">
-      <div class="body">
-        <h3>${p.nome}</h3>
-        <p class="desc">${p.descricao}</p>
-        <div class="preco">${fmt(p.preco)}</div>
-        <div class="acao">
-          <button class="btn btn-outline" data-id="${p.id}" data-qtde="1">Comprar</button>
-          <button class="btn btn-primary" data-id="${p.id}" data-qtde="1">Adicionar</button>
-        </div>
-      </div>`;
-    el.appendChild(card);
-  });
-
-  el.addEventListener('click', e=>{
-    const b = e.target.closest('button');
-    if(!b) return;
-    const id = b.dataset.id;
-    adicionarCarrinho(id,1);
-    if(b.classList.contains('btn-outline')) abrirCarrinho();
+      <h3>${p.nome}</h3>
+      <p>${p.descricao}</p>
+      <div class="preco">${moeda(p.preco)}</div>
+      <button data-id="${p.id}">Adicionar ao carrinho</button>
+    `;
+    el.querySelector('button').addEventListener('click', ()=> addCarrinho(p.id));
+    $lista.appendChild(el);
   });
 }
 
-function adicionarCarrinho(id, qtd=1){
-  const prod = state.produtos.find(p=>p.id===id);
-  if(!prod) return;
-  const existe = state.carrinho.find(i=>i.id===id);
-  if(existe){ existe.qtd += qtd; }
-  else { state.carrinho.push({ id: prod.id, nome: prod.nome, preco: prod.preco, imagem: prod.imagem, qtd }); }
-  salvarCarrinho();
-  renderCarrinho();
+function getCart(){
+  try{
+    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  }catch(_){ return [] }
+}
+function setCart(c){ localStorage.setItem(CART_KEY, JSON.stringify(c)); atualizarContador(); renderCarrinho();}
+
+function addCarrinho(id){
+  const cart = getCart();
+  const item = cart.find(i=>i.id===id);
+  if(item){ item.qtd += 1; }
+  else{
+    const p = PRODUTOS.find(p=>p.id===id);
+    cart.push({id:p.id, nome:p.nome, preco:p.preco, imagem:p.imagem, qtd:1});
+  }
+  setCart(cart);
+  $drawer.classList.add('ativo');
 }
 
 function removerItem(id){
-  state.carrinho = state.carrinho.filter(i=>i.id!==id);
-  salvarCarrinho();
-  renderCarrinho();
+  let cart = getCart().filter(i=>i.id !== id);
+  setCart(cart);
+}
+function mudarQtd(id, delta){
+  const cart = getCart().map(i => {
+    if(i.id===id){
+      const qtd = i.qtd + delta;
+      return {...i, qtd: Math.max(1, qtd)};
+    }
+    return i;
+  });
+  setCart(cart);
 }
 
-function alterarQtd(id, delta){
-  const item = state.carrinho.find(i=>i.id===id);
-  if(!item) return;
-  item.qtd += delta;
-  if(item.qtd<=0) removerItem(id);
-  salvarCarrinho();
-  renderCarrinho();
+function atualizarContador(){
+  const q = getCart().reduce((acc,i)=>acc+i.qtd,0);
+  $contador.textContent = q;
 }
 
 function renderCarrinho(){
-  const cont = byId('itens-carrinho');
-  cont.innerHTML = '';
+  const cart = getCart();
+  if(!cart.length){
+    $itensCarrinho.innerHTML = `<p>Seu carrinho está vazio.</p>`;
+    $totalCarrinho.textContent = 'R$ 0,00';
+    return;
+  }
   let total = 0;
-  state.carrinho.forEach(i=>{
-    total += i.preco * i.qtd;
-    const row = document.createElement('div');
-    row.className='item';
-    row.innerHTML = `
-      <img src="${i.imagem}" alt="${i.nome}">
-      <div class="t">
-        <div>${i.nome}</div>
-        <div class="p">${fmt(i.preco)}</div>
-        <div class="qtd">
-          <button onclick="alterarQtd('${i.id}',-1)">-</button>
-          <span>${i.qtd}</span>
-          <button onclick="alterarQtd('${i.id}',1)">+</button>
-          <button onclick="removerItem('${i.id}')" style="margin-left:auto">remover</button>
-        </div>
-      </div>`;
-    cont.appendChild(row);
-  });
-  byId('total-carrinho').textContent = fmt(total);
+  $itensCarrinho.innerHTML = cart.map(i=>{
+     total += i.preco*i.qtd;
+     return `
+       <div class="item-carrinho">
+         <img src="${i.imagem}" alt="${i.nome}">
+         <div style="flex:1">
+           <div class="nome">${i.nome}</div>
+           <div class="qtd">
+              <button onclick="mudarQtd('${i.id}',-1)">-</button>
+              <span>${i.qtd}</span>
+              <button onclick="mudarQtd('${i.id}',+1)">+</button>
+           </div>
+         </div>
+         <div>${moeda(i.preco*i.qtd)}</div>
+         <button class="remover" onclick="removerItem('${i.id}')">remover</button>
+       </div>
+     `;
+  }).join('');
+  $totalCarrinho.textContent = moeda(total);
 }
 
-function abrirCarrinho(){ document.getElementById('drawer').classList.add('open'); renderCarrinho(); }
-function fecharCarrinho(){ document.getElementById('drawer').classList.remove('open'); }
+async function finalizarCompra(){
+  const items = getCart().map(i=> ({
+    title: i.nome,
+    unit_price: Number(i.preco.toFixed(2)),
+    quantity: i.qtd,
+    currency_id: "BRL"
+  }));
 
-byId('btn-carrinho').onclick = abrirCarrinho;
-byId('fechar-drawer').onclick = fecharCarrinho;
+  if(!items.length) return alert('Seu carrinho está vazio.');
 
-byId('btn-finalizar').onclick = async ()=>{
-  if(state.carrinho.length===0) return;
   try{
-    const body = { items: state.carrinho.map(i=>({ title: i.nome, quantity: i.qtd, unit_price: i.preco })) };
-    const r = await fetch('/api/create-preference', {
+    const resp = await fetch('/api/create-preference', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(body)
+      body: JSON.stringify({ items })
     });
-    const json = await r.json();
-    if(json.init_point){
-      // redireciona para o checkout do Mercado Pago (web checkout)
-      location.href = json.init_point;
+    if(!resp.ok) throw new Error('Falha ao criar preferência.');
+    const data = await resp.json();
+    if(data.init_point){
+      window.location.href = data.init_point; // redireciona para o checkout do MP
     }else{
-      location.href = '/erro.html';
+      alert('Erro ao iniciar checkout.');
     }
   }catch(e){
     console.error(e);
-    location.href = '/erro.html';
+    window.location.href = '/erro.html';
   }
-};
+}
 
-carregarProdutos();
+$abrir.addEventListener('click', ()=> $drawer.classList.add('ativo'));
+$fechar.addEventListener('click', ()=> $drawer.classList.remove('ativo'));
+$finalizar.addEventListener('click', finalizarCompra);
 
+renderProdutos();
+atualizarContador();
+renderCarrinho();
 
----
+// Expondo funções globais usadas no HTML
+window.removerItem = removerItem;
+window.mudarQtd = mudarQtd;
