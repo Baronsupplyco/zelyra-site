@@ -1,46 +1,47 @@
-// api/create-preference.js
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({error: 'Method not allowed'});
+// /api/checkout.js
+import mercadopago from "mercadopago";
+
+export default async function handler(req, res){
+  if(req.method !== 'POST'){
+    return res.status(405).json({error: 'Método não permitido'});
   }
 
-  const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
-  if(!ACCESS_TOKEN){
-    return res.status(500).json({error: 'ACCESS_TOKEN não configurado na Vercel.'});
-  }
+  try{
+    const { items, payer } = req.body || {};
 
-  try {
-    const { items = [] } = req.body;
+    if(!items || !Array.isArray(items) || !items.length){
+      return res.status(400).json({error: 'Itens inválidos'});
+    }
+
+    mercadopago.configure({
+      access_token: process.env.MP_ACCESS_TOKEN   // << configure na Vercel
+    });
 
     const preference = {
-      items,
+      items: items.map(i => ({
+        title: i.title,
+        quantity: Number(i.quantity),
+        currency_id: "BRL",
+        unit_price: Number(i.unit_price.toFixed(2)),
+        picture_url: i.picture_url || undefined
+      })),
+      payer: payer || {},
       back_urls: {
-        success: `${req.headers.origin || ''}/sucesso.html`,
-        failure: `${req.headers.origin || ''}/erro.html`,
-        pending: `${req.headers.origin || ''}/sucesso.html`
+        success: `${process.env.BASE_URL || 'https://'+req.headers.host}/sucesso.html`,
+        failure: `${process.env.BASE_URL || 'https://'+req.headers.host}/sucesso.html`,
+        pending: `${process.env.BASE_URL || 'https://'+req.headers.host}/sucesso.html`
       },
       auto_return: "approved"
     };
 
-    const mpResp = await fetch('https://api.mercadopago.com/checkout/preferences', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${ACCESS_TOKEN}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(preference)
+    const resp = await mercadopago.preferences.create(preference);
+    return res.status(200).json({
+      id: resp.body.id,
+      init_point: resp.body.init_point,
+      sandbox_init_point: resp.body.sandbox_init_point
     });
-
-    const data = await mpResp.json();
-    if (mpResp.ok && data.init_point) {
-      return res.status(200).json({ init_point: data.init_point });
-    } else {
-      console.error('MP Error:', data);
-      return res.status(400).json({ error: 'Falha ao criar preferência', details: data });
-    }
-
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({error: 'Erro interno ao criar preferência'});
+  }catch(e){
+    console.error('Erro MP:', e.message);
+    return res.status(500).json({ error: 'Erro ao criar preferência' });
   }
 }
