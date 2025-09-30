@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo — ZELYRA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html" aria-label="ZELYRA">
+      <svg class="logo" width="130" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="70" fill="#E9B44C" font-size="72" font-family="Montserrat, sans-serif" font-weight="700">ZELYRA</text>
+        <polygon points="340,10 350,40 380,40 356,58 366,88 340,70 314,88 324,58 300,40 330,40" fill="#E9B44C"/>
+      </svg>
+    </a>
+    <nav>
+      <a class="active" href="catalogo.html">Catálogo</a>
+      <a href="index.html#beneficios">Benefícios</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <button id="btn-cart" class="btn-outline">🛒 <span id="cart-count">0</span></button>
+  </header>
+
+  <section class="section">
+    <h2>Catálogo</h2>
+    <div id="grid" class="grid"></div>
+  </section>
+
+  <!-- Modal Carrinho -->
+  <div id="cart-modal" class="cart-modal hidden">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h3>Seu Carrinho</h3>
+        <button id="close-cart" class="close">×</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="total">Total: R$ <span id="cart-total">0,00</span></div>
+        <a id="checkout-btn" class="btn" href="#" target="_blank">Finalizar Compra</a>
+      </div>
+    </div>
+  </div>
+
+  <footer><p>© ZELYRA — Moda Fitness Premium</p></footer>
+
+  <script>
+  // catálogo mínimo (edite/adicione aqui)
+  window.ZELYRA_PRODUCTS = [
+    {
+      id:"macaquinho-preto",
+      name:"Macaquinho Fitness Preto",
+      price:99.90,
+      img:"https://images.unsplash.com/photo-1599058945522-28b78bf9fbdf?q=80&w=1200&auto=format&fit=crop",
+      desc:"Cintura alta, compressão, logo dourado ZELYRA. Modela sem marcar."
+    },
+    {
+      id:"conjunto-rosa",
+      name:"Conjunto Rosa (Top + Short)",
+      price:119.90,
+      img:"https://images.unsplash.com/photo-1620799147480-3b2e62f7f016?q=80&w=1200&auto=format&fit=crop",
+      desc:"Design moderno, compressão na medida e conforto premium."
+    }
+  ];
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
