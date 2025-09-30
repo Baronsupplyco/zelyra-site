@@ -1,8 +1,9 @@
 {
-  "name": "zelyra-site",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "mercadopago": "^1.6.5"
-  }
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
