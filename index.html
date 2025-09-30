@@ -3,76 +3,272 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZELYRA — Moda Fitness Feminina Premium</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>ZELYRA • Moda Fitness Feminina</title>
+
+  <!-- Fonte Google clean e premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ESTILO PRINCIPAL -->
+  <link rel="stylesheet" href="estilo.css" />
+  
+  <meta name="description" content="ZELYRA – Moda fitness feminina premium: conforto, estilo e desempenho com envio imediato para todo o Brasil."/>
+  <link rel="icon" href="https://i.imgur.com/2Hh0wLx.png" />
 </head>
 <body>
-  <header>
-    <a class="brand" href="index.html" aria-label="ZELYRA">
-      <svg class="logo" width="130" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="70" fill="#E9B44C" font-size="72" font-family="Montserrat, sans-serif" font-weight="700">ZELYRA</text>
-        <polygon points="340,10 350,40 380,40 356,58 366,88 340,70 314,88 324,58 300,40 330,40" fill="#E9B44C"/>
-      </svg>
-    </a>
-    <nav>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="#beneficios">Benefícios</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <button id="btn-cart" class="btn-outline">🛒 <span id="cart-count">0</span></button>
+  <!-- Header / navegação -->
+  <header class="topbar">
+    <div class="container topbar__wrap">
+      <div class="brand">
+        <img src="https://i.imgur.com/9oZ8vZP.png" alt="Zelyra Logo" class="logo"/>
+        <span class="brand__name">ZELYRA</span>
+      </div>
+
+      <nav class="menu">
+        <a href="#produtos">Produtos</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <button class="btn-cart" id="btnCart">
+        🛒 <span id="cartCount">0</span>
+      </button>
+    </div>
   </header>
 
+  <!-- Hero - fundo feminino/luxo -->
   <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
+    <div class="container hero__content">
       <h1>Moda Fitness Feminina</h1>
-      <p>Estilo, conforto e performance premium com envio imediato para todo o Brasil.</p>
-      <a href="catalogo.html" class="btn">Ver Catálogo</a>
+      <p>Estilo, conforto e performance premium, com envio imediato.</p>
+      <div class="hero__cta">
+        <a href="#produtos" class="btn btn--primary">Ver Produtos</a>
+        <a href="https://wa.me/5547997695133?text=Ol%C3%A1%20ZELYRA!%20Quero%20ajuda%20para%20comprar%20no%20site." class="btn btn--ghost" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+      <ul class="hero__bullets">
+        <li>✓ Envio imediato</li>
+        <li>✓ Compra segura (Mercado Pago)</li>
+        <li>✓ Pix, Débito e Crédito</li>
+      </ul>
     </div>
   </section>
 
-  <section id="beneficios" class="section alt">
-    <h2>Por que escolher a ZELYRA?</h2>
-    <ul class="benefits">
-      <li>✨ Modela sem marcar, caimento premium</li>
-      <li>🌬️ Respirável e secagem rápida</li>
-      <li>⭐ Acabamento com logo dourado</li>
-      <li>🚚 Envio imediato para o Brasil inteiro</li>
-      <li>🔒 Compra segura — Pix, Débito e Crédito</li>
-    </ul>
-  </section>
-
-  <section id="sobre" class="section">
-    <h2>Sobre</h2>
-    <p>A ZELYRA nasceu para elevar a sua performance com estilo. Peças criadas para treinar e viver — com conforto, durabilidade e acabamento impecável.</p>
-  </section>
-
-  <section id="contato" class="section alt">
-    <h2>Contato</h2>
-    <p>Fale com a gente:</p>
-    <a class="btn" href="https://wa.me/5547997695133" target="_blank" rel="noopener">WhatsApp</a>
-    <p class="small">Checkout rápido via WhatsApp (padrão). Integração Mercado Pago sob demanda.</p>
-  </section>
-
-  <!-- Modal Carrinho -->
-  <div id="cart-modal" class="cart-modal hidden">
-    <div class="cart-content">
-      <div class="cart-header">
-        <h3>Seu Carrinho</h3>
-        <button id="close-cart" class="close">×</button>
+  <!-- Produtos -->
+  <section class="section" id="produtos">
+    <div class="container">
+      <div class="section__header">
+        <h2>Nossos Produtos</h2>
+        <p>Seleção premium pronta para envio 🚀</p>
       </div>
-      <div id="cart-items" class="cart-items"></div>
-      <div class="cart-footer">
-        <div class="total">Total: R$ <span id="cart-total">0,00</span></div>
-        <a id="checkout-btn" class="btn" href="#" target="_blank">Finalizar Compra</a>
+
+      <div class="grid">
+        <!-- Produto 1 -->
+        <article class="card">
+          <div class="card__media">
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1080&auto=format&fit=crop" alt="Macaquinho Fitness Preto" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Macaquinho Fitness Preto</h3>
+            <p class="card__text">Cintura alta, compressão e modelagem premium com logo ZELYRA em dourado. Conforto sem marcar.</p>
+            <div class="card__pricewrap">
+              <span class="card__price">R$ 99,90</span>
+              <button class="btn btn--small btn--primary addToCart" data-id="1">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 2 -->
+        <article class="card">
+          <div class="card__media">
+            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1080&auto=format&fit=crop#rosa" alt="Conjunto Rosa (Top + Short)" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Conjunto Rosa (Top + Short)</h3>
+            <p class="card__text">Design moderno, compressão medida e toque macio. Ideal para treinos e lifestyle premium.</p>
+            <div class="card__pricewrap">
+              <span class="card__price">R$ 119,90</span>
+              <button class="btn btn--small btn--primary addToCart" data-id="2">Adicionar</button>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
-  </div>
+  </section>
 
-  <footer><p>© ZELYRA — Moda Fitness Premium</p></footer>
-  <script src="script.js"></script>
+  <!-- Benefícios -->
+  <section class="section section--light" id="beneficios">
+    <div class="container">
+      <div class="section__header">
+        <h2>Por que escolher a ZELYRA</h2>
+      </div>
+      <div class="grid grid--benefits">
+        <div class="benefit">
+          <span class="benefit__icon">💎</span>
+          <h4>Modela sem marcar</h4>
+          <p>Compressão na medida e toque macio para valorizar as curvas.</p>
+        </div>
+        <div class="benefit">
+          <span class="benefit__icon">🌬️</span>
+          <h4>Respirável e confortável</h4>
+          <p>Tecido premium, secagem rápida e conforto absoluto.</p>
+        </div>
+        <div class="benefit">
+          <span class="benefit__icon">✨</span>
+          <h4>Acabamento premium</h4>
+          <p>Logo ZELYRA em dourado e costuras reforçadas.</p>
+        </div>
+        <div class="benefit">
+          <span class="benefit__icon">🚚</span>
+          <h4>Envio imediato</h4>
+          <p>Despacho rápido para todo o Brasil com rastreio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="section__header">
+        <h2>Sobre a ZELYRA</h2>
+      </div>
+      <p class="lead">
+        A ZELYRA nasceu para elevar o seu treino e o seu dia a dia com roupas que entregam
+        estilo, conforto e performance. Peças com toque premium, pensadas para você se sentir
+        confiante e impecável em qualquer ocasião.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contato / rodapé -->
+  <footer class="footer" id="contato">
+    <div class="container footer__wrap">
+      <div class="footer__brand">
+        <img src="https://i.imgur.com/9oZ8vZP.png" alt="Zelyra logo" />
+        <p>ZELYRA • Moda Fitness Premium</p>
+      </div>
+
+      <div class="footer__info">
+        <p>Fale com a gente pelo WhatsApp:</p>
+        <a class="btn btn--whatsapp" href="https://wa.me/5547997695133" target="_blank" rel="noopener">WhatsApp (47) 99769-5133</a>
+        <small>Pagamento seguro com Mercado Pago • Pix, Débito e Crédito</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART: Drawer lateral -->
+  <aside class="cart" id="cart">
+    <div class="cart__head">
+      <h3>Seu Carrinho</h3>
+      <button class="cart__close" id="closeCart">×</button>
+    </div>
+    <div class="cart__body" id="cartItems">
+      <p>Seu carrinho está vazio.</p>
+    </div>
+    <div class="cart__foot">
+      <div class="cart__total">
+        <span>Total:</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button class="btn btn--primary" id="btnCheckout">Finalizar no WhatsApp</button>
+    </div>
+  </aside>
+
+  <div class="cart__overlay" id="cartOverlay"></div>
+
+  <script>
+    // --- Dados dos produtos (IDs devem bater com o data-id nos botões) ---
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Macaquinho Fitness Preto",
+        price: 99.90
+      },
+      {
+        id: 2,
+        name: "Conjunto Rosa (Top + Short)",
+        price: 119.90
+      }
+    ];
+
+    // --- Estado do carrinho ---
+    let cart = JSON.parse(localStorage.getItem('zelyra_cart') || '[]');
+
+    // --- Utilidades ---
+    const fmt = v => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    const cartCount = document.getElementById('cartCount');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartItems = document.getElementById('cartItems');
+    const cartEl     = document.getElementById('cart');
+    const overlay    = document.getElementById('cartOverlay');
+
+    function openCart(){ cartEl.classList.add('is-open'); overlay.classList.add('is-shown'); }
+    function closeCart(){ cartEl.classList.remove('is-open'); overlay.classList.remove('is-shown'); }
+
+    function saveCart() { localStorage.setItem('zelyra_cart', JSON.stringify(cart)); }
+
+    function renderCart() {
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p>Seu carrinho está vazio.</p>';
+      } else {
+        cartItems.innerHTML = cart.map((it, idx) => `
+          <div class="cart__item">
+            <div class="cart__name">${it.name}</div>
+            <div class="cart__qty">
+              <button class="qtybtn" onclick="changeQty(${idx},-1)">−</button>
+              <span>${it.qty}</span>
+              <button class="qtybtn" onclick="changeQty(${idx},1)">+</button>
+            </div>
+            <div class="cart__price">${fmt(it.qty * it.price)}</div>
+            <button class="cart__remove" onclick="removeItem(${idx})">×</button>
+          </div>
+        `).join('');
+      }
+      const total = cart.reduce((s, it) => s + it.qty * it.price, 0);
+      cartTotal.textContent = fmt(total);
+      cartCount.textContent = cart.reduce((s, it) => s + it.qty, 0);
+    }
+
+    function addToCart(id){
+      const prod = PRODUCTS.find(p => p.id == id);
+      if (!prod) return;
+      const found = cart.find(it => it.id == id);
+      if (found) found.qty += 1;
+      else cart.push({ id: prod.id, name: prod.name, price: prod.price, qty: 1 });
+      saveCart(); renderCart(); openCart();
+    }
+
+    function changeQty(idx, delta){
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx,1);
+      saveCart(); renderCart();
+    }
+
+    function removeItem(idx){
+      cart.splice(idx,1); saveCart(); renderCart();
+    }
+
+    // --- Binds / eventos ---
+    document.querySelectorAll('.addToCart').forEach(btn=>{
+      btn.addEventListener('click', e => addToCart(e.currentTarget.dataset.id));
+    });
+
+    document.getElementById('btnCart').addEventListener('click', openCart);
+    document.getElementById('closeCart').addEventListener('click', closeCart);
+    overlay.addEventListener('click', closeCart);
+
+    // Checkout simples via WhatsApp
+    document.getElementById('btnCheckout').addEventListener('click', () => {
+      if (cart.length === 0) { alert('Seu carrinho está vazio.'); return; }
+      const total = cart.reduce((s, it) => s + it.qty * it.price, 0);
+      const lines = cart.map(it => `• ${it.qty}x ${it.name} - ${fmt(it.price)} (cada)`).join('%0A');
+      const msg = `Olá ZELYRA! Quero finalizar minha compra:%0A%0A${lines}%0A%0ATotal: ${fmt(total)}%0A%0APodemos continuar?`;
+      window.open(`https://wa.me/5547997695133?text=${msg}`, '_blank');
+    });
+
+    // Inicializa render
+    renderCart();
+  </script>
 </body>
 </html>
